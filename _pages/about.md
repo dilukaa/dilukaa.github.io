@@ -11,7 +11,7 @@ redirect_from:
 ======
 I am a Postdoctoral Research Fellow in the Department of Electrical and Computer Engineering at the University of Alberta, Canada. My research focuses on next-generation wireless communication systems, with particular emphasis on bridging communication and sensing technologies for future 6G networks.
 
-I received my Ph.D. in Electrical and Computer Engineering from Southern Illinois University in 2021, where my work explored advanced architectures for wireless systems, including cell-free massive MIMO and intelligent reflective surface–aided communications. Prior to that, I obtained my B.Sc. (First-Class Honours) in Electrical and Electronic Engineering from the University of Peradeniya, Sri Lanka.
+I received my Ph.D. in Electrical and Computer Engineering from Southern Illinois University in 2021, where my work explored advanced architectures for wireless systems, including cell-free massive MIMO and intelligent reflective surface-aided communications. Prior to that, I obtained my B.Sc. (First-Class Honours) in Electrical and Electronic Engineering from the University of Peradeniya, Sri Lanka.
 
 My research combines rigorous mathematical modeling, signal processing, and system-level design to address emerging challenges in wireless networks. I am particularly interested in developing efficient, scalable, and intelligent communication frameworks that support both data transmission and sensing capabilities in future wireless ecosystems.
 
@@ -34,7 +34,7 @@ My work aims to unify communication, sensing, and computation into efficient and
 
 🌟 Career Highlights
 ======
-- **NSERC Postdoctoral Fellow (2024–2026)**  
+- **NSERC Postdoctoral Fellow (2024-2026)**  
   Awarded a highly competitive national fellowship to conduct research on integrating communication and sensing for 6G wireless networks.
 
 - **Extensive Research Contributions**  
@@ -50,7 +50,7 @@ My work aims to unify communication, sensing, and computation into efficient and
   - NSF and institutional travel awards for research dissemination  
 
 - **Industry & Collaborative Research Experience**  
-  Contributed to industry–academic collaborations (e.g., Huawei Canada) focused on advancing wireless technologies for 6G systems.
+  Contributed to industry-academic collaborations (e.g., Huawei Canada) focused on advancing wireless technologies for 6G systems.
 
 - **Teaching & Mentorship**  
   Mentored graduate students and supported undergraduate and graduate teaching in communication systems, signal processing, and applied mathematics.
