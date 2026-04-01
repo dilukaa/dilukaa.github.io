@@ -26,8 +26,8 @@ main:
   - title: "CV"
     url: /cv/Diluka_CV.pdf
     
-  # - title: "CV"
-  #   url: /cv-json/
+  - title: "News"
+    url: /news/
     
   # - title: "Guide"
   #  url: /markdown/
