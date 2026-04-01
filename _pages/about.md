@@ -35,7 +35,7 @@ My work aims to unify communication, sensing, and computation into efficient and
   Awarded a highly competitive national fellowship to conduct research on integrating communication and sensing for 6G wireless networks.
 
 - **Extensive Research Contributions**  
-  Authored and co-authored **40+ peer-reviewed publications** in leading IEEE journals and conferences, with strong citation impact (h-index 17).
+  Authored and co-authored **45+ peer-reviewed publications** in leading IEEE journals and conferences, with strong citation impact (h-index 17).
 
 - **Scholarly Leadership & Editorial Roles**  
   - Associate Editor, *IEEE Canadian Journal of Electrical and Computer Engineering*  
