@@ -24,13 +24,13 @@ repository               : "dilukaa/dilukaa.github.io"
 author:
   # Biographic information
   avatar           : "DilukaA.jpg"
-  name             : "Your Sidebar Name"
+  name             : "Diluka Galappaththige, Ph.D."
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : "Post-Doctoral Research Fellow"
   location         : "Earth"
-  employer         : "Red Brick University"
+  employer         : "University of Alberta"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "diluka.lg@ualberta.ca" 
 
   # Academic websites
   academia         : # URL
