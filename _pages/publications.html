@@ -11,60 +11,95 @@ author_profile: true
 
 {% include base_path %}
 
-<h2>Journal Articles</h2>
+<h2>Books</h2>
 <hr>
-
-<ol reversed start="32">
+<ol>
   <li>
-    <strong>Diluka Galappaththige</strong>, Mohammadali Mohammadi, Gayan Amarasuriya, and Chintha Tellambura,
-    "Cell-Free Integrated Sensing and Communication: Principles, Advances, and Future Directions,"
-    <i>Proceedings of the IEEE</i>, 2026.
-    <a href="/files/papers/cf-isac-principles.pdf" target="_blank" title="PDF" style="margin-left:8px;">
-      <i class="fas fa-file-pdf"></i>
+    <strong>Diluka Galappaththige</strong> and Chintha Tellambura (2025),
+    “Cell-Free Integrated Sensing and Communication,”
+    <i>Foundations and Trends in Communications and Information Theory</i>, Boston-Delft: Now Publishers.
+    
     </a>
   </li>
 
   <li>
-    <strong>Diluka Galappaththige</strong> and Chintha Tellambura,
-    "Wideband NF-ISAC: Subcarrier Allocation for Sensing and Beamforming,"
-    <i>IEEE Wireless Communications Letters</i>, 2026.
-    <a href="/files/papers/wideband-nf-isac.pdf" target="_blank" title="PDF" style="margin-left:8px;">
-      <i class="fas fa-file-pdf"></i>
-    </a>
-  </li>
-
-  <li>
-    <strong>Diluka Galappaththige</strong> and Chintha Tellambura,
-    "Low-Complexity Beamforming for NF Secure ISAC,"
-    <i>IEEE Wireless Communications Letters</i>, 2025.
-    <a href="/files/papers/nf-secure-isac.pdf" target="_blank" title="PDF" style="margin-left:8px;">
+    <strong>Diluka Galappaththige</strong> and Chintha Tellambura  (2026),
+    “ALM-Based Manifold Optimization for Wireless Beamforming,”
+    <i>In preparation</i>,  (In preparation; expected 2026)
+    <a href="/papers/sample.pdf" target="_blank" style="margin-left:8px;">
       <i class="fas fa-file-pdf"></i>
     </a>
   </li>
 </ol>
 
-<!-- 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
--->
+<h2>Book Chapters</h2>
+<hr>
+<ol>
+  <li>
+    Azar Hakimi, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+    “A Roadmap for NF ISAC in 6G: A Comprehensive Overview and Tutorial,”
+    MDPI, 2025.
+    <a href="/papers/sample.pdf" target="_blank" style="margin-left:8px;">
+      <i class="fas fa-file-pdf"></i>
+    </a>
+  </li>
+</ol>
+
+<h2>Journal Articles</h2>
+<hr>
+<ol reversed start="32">
+
+  <li><strong>Diluka Galappaththige</strong>, Mohammadali Mohammadi, Gayan Amarasuriya, and Chintha Tellambura,
+  “Cell-Free Integrated Sensing and Communication: Principles, Advances, and Future Directions,”
+  <i>Proceedings of the IEEE</i>, 2026.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
 
 
+
+</ol>
+
+<h2>Conference Proceedings</h2>
+<hr>
+<ol reversed start="15">
+
+  <li>Shayan Zargari, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+  “Adaptive Neural Gradient Descent Method,”
+  <i>IEEE CCNC</i>, 2026.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
+
+  <li><strong>Diluka Galappaththige</strong>, Mohammadali Mohammadi, and Chintha Tellambura,
+  “Hybrid Transmission Protocol for ISAC,”
+  <i>IEEE ICC</i>, 2025.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
+
+  <!-- remaining conferences follow same pattern -->
+
+  <li>Promod Munaweera, Akram Shafie, <strong>Diluka Galappaththige</strong>, et al.,
+  “Underwater Visible Light MIMO Communication,”
+  <i>ICTer</i>, 2017.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
+
+</ol>
+
+<h2>Submitted Papers</h2>
+<hr>
+<ol>
+
+  <li><strong>Diluka Galappaththige</strong> and Chintha Tellambura,
+  “RF Energy Harvesting Models,” 2025.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
+
+  <li><strong>Diluka Galappaththige</strong>, Shayan Zargari,
+  “Riemannian Optimization for Energy Networks,” 2025.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
+
+  <li><strong>Diluka Galappaththige</strong> and Chintha Tellambura,
+  “RIS-Assisted Cognitive Radio Networks,” 2025.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
+
+  <li>Ranga Kulathunga, <strong>Diluka Galappaththige</strong>, et al.,
+  “Set Transformer-Based Beamforming,” 2026.
+  <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a></li>
+
+</ol>
 
