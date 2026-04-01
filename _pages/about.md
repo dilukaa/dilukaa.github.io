@@ -18,17 +18,24 @@ In addition to research, I am actively involved in mentoring graduate students, 
 🔬 Research Interests
 ======
 My research lies broadly in **wireless communications and signal processing**, with a focus on enabling technologies for **5G, beyond 5G, and 6G systems**. Key areas include:
+- Massive MIMO systems (co-located and cell-free architectures)
+- Integrated sensing and communication (ISAC) and near-field ISAC
+- Reconfigurable intelligent surfaces (RIS)
+- Full-duplex wireless communication
+- Backscatter communication and ultra-low-power IoT systems
+- Wireless power transfer and energy harvesting
+- Machine learning for wireless communications
+- Millimeter-wave and terahertz communications
+My work aims to unify communication, sensing, and computation into efficient and intelligent wireless systems, paving the way for future smart and connected environments. If you are interested in collaborating on a research project, feel free to contact me at *diluka.lg@ualberta.ca*.  
+
+# Fork [this template](https://github.com/academicpages/academicpages.github.io)
 
 
-Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart's content without touching the content of your site. If you get to a point where you've broken something in Jekyll/HTML/CSS beyond repair, your Markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over - just be sure to save the Markdown files! You can also write scripts that process the structured data on the site, such as [this one](https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb) that analyzes metadata in pages about talks to display [a map of every location you've given a talk](https://academicpages.github.io/talkmap.html).
-
-For those users that need more advanced functionality, the template also supports the following popular tools:
-- [MathJax](https://www.mathjax.org/) for mathematical equations
-- [Mermaid](https://mermaid.js.org/) for diagraming
-- [Plotly](https://plotly.com/javascript/) for plotting
-
-Getting started
+🌟 Career Highlights
 ======
+- **NSERC Postdoctoral Fellow (2024–2026)**
+  Awarded a highly competitive national fellowship to conduct research on integrating communication and sensing for 6G wireless networks.
+
 6. Register a GitHub account if you don't have one and confirm your e-mail (required!)
 5. Fork [this template](https://github.com/academicpages/academicpages.github.io) by clicking the "Use this template" button in the top right. 
 4. Go to the repository's settings (rightmost item in the tabs that start with "Code", should be below "Unwatch"). Rename the repository "[your GitHub username].github.io", which will also be your website's URL.
