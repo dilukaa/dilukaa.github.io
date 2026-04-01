@@ -29,6 +29,7 @@ My research lies broadly in **wireless communications and signal processing**, w
 - Wireless power transfer and energy harvesting
 - Machine learning for wireless communications
 - Millimeter-wave and terahertz communications
+
 My work aims to unify communication, sensing, and computation into efficient and intelligent wireless systems, paving the way for future smart and connected environments. If you are interested in collaborating on a research project, feel free to contact me at *diluka.lg@ualberta.ca*.  
 
 
