@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-🧑‍💼 About Me
+About Me
 ======
 I am a Postdoctoral Research Fellow in the Department of Electrical and Computer Engineering at the University of Alberta, Canada. My research focuses on next-generation wireless communication systems, with particular emphasis on bridging communication and sensing technologies for future 6G networks.
 
@@ -19,7 +19,7 @@ In addition to research, I am actively involved in mentoring graduate students, 
 
 
 
-🔬 Research Interests
+Research Interests
 ======
 My research lies broadly in **wireless communications and signal processing**, with a focus on enabling technologies for **5G, beyond 5G, and 6G systems**. Key areas include:
 - Massive MIMO systems (co-located and cell-free architectures)
@@ -35,7 +35,7 @@ My work aims to unify communication, sensing, and computation into efficient and
 
 
 
-🌟 Career Highlights
+Career Highlights
 ======
 - **NSERC Postdoctoral Fellow (2024-2026)**  
   Awarded a highly competitive national fellowship to conduct research on integrating communication and sensing for 6G wireless networks.
