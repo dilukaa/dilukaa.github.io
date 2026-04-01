@@ -1,15 +1,21 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "🧑‍💼 About Me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+I am a Postdoctoral Research Fellow in the Department of Electrical and Computer Engineering at the University of Alberta, Canada. My research focuses on next-generation wireless communication systems, with particular emphasis on bridging communication and sensing technologies for future 6G networks.
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!
+I received my Ph.D. in Electrical and Computer Engineering from Southern Illinois University in 2021, where my work explored advanced architectures for wireless systems, including cell-free massive MIMO and intelligent reflective surface–aided communications. Prior to that, I obtained my B.Sc. (First-Class Honours) in Electrical and Electronic Engineering from the University of Peradeniya, Sri Lanka.
 
- You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+My research combines rigorous mathematical modeling, signal processing, and system-level design to address emerging challenges in wireless networks. I am particularly interested in developing efficient, scalable, and intelligent communication frameworks that support both data transmission and sensing capabilities in future wireless ecosystems.
+
+In addition to research, I am actively involved in mentoring graduate students, contributing to course development, and supporting teaching in areas such as communication systems, signal processing, and engineering mathematics.
+
+**This text will be bold**
+
 
 A data-driven personal website
 ======
