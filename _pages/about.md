@@ -1,11 +1,14 @@
 ---
 permalink: /
-title: "🧑‍💼 About Me"
+title: ""
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+
+🧑‍💼 About Me
+======
 I am a Postdoctoral Research Fellow in the Department of Electrical and Computer Engineering at the University of Alberta, Canada. My research focuses on next-generation wireless communication systems, with particular emphasis on bridging communication and sensing technologies for future 6G networks.
 
 I received my Ph.D. in Electrical and Computer Engineering from Southern Illinois University in 2021, where my work explored advanced architectures for wireless systems, including cell-free massive MIMO and intelligent reflective surface–aided communications. Prior to that, I obtained my B.Sc. (First-Class Honours) in Electrical and Electronic Engineering from the University of Peradeniya, Sri Lanka.
