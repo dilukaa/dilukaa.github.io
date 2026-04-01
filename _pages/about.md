@@ -18,6 +18,7 @@ My research combines rigorous mathematical modeling, signal processing, and syst
 In addition to research, I am actively involved in mentoring graduate students, contributing to course development, and supporting teaching in areas such as communication systems, signal processing, and engineering mathematics.
 
 
+
 🔬 Research Interests
 ======
 My research lies broadly in **wireless communications and signal processing**, with a focus on enabling technologies for **5G, beyond 5G, and 6G systems**. Key areas include:
@@ -31,6 +32,7 @@ My research lies broadly in **wireless communications and signal processing**, w
 - Millimeter-wave and terahertz communications
 
 My work aims to unify communication, sensing, and computation into efficient and intelligent wireless systems, paving the way for future smart and connected environments. If you are interested in collaborating on a research project, feel free to contact me at *[diluka.lg@ualberta.ca](mailto:diluka.lg@ualberta.ca)*.  
+
 
 
 🌟 Career Highlights
