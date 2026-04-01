@@ -33,8 +33,26 @@ My work aims to unify communication, sensing, and computation into efficient and
 
 🌟 Career Highlights
 ======
-- **NSERC Postdoctoral Fellow (2024–2026)**
+- **NSERC Postdoctoral Fellow (2024–2026)**  
   Awarded a highly competitive national fellowship to conduct research on integrating communication and sensing for 6G wireless networks.
+
+- **Extensive Research Contributions**  
+  Authored and co-authored **40+ peer-reviewed publications** in leading IEEE journals and conferences, with strong citation impact (h-index 17).
+
+- **Scholarly Leadership & Editorial Roles**  
+  - Associate Editor, *IEEE Canadian Journal of Electrical and Computer Engineering*  
+  - Guest Editor for *Symmetry* and *Entropy* journals  
+  - Active reviewer for numerous IEEE journals and conferences  
+
+- **Awards & Recognition**  
+  - IEEE Exemplary Reviewer Award (2020, 2021)  
+  - NSF and institutional travel awards for research dissemination  
+
+- **Industry & Collaborative Research Experience**  
+  Contributed to industry–academic collaborations (e.g., Huawei Canada) focused on advancing wireless technologies for 6G systems.
+
+- **Teaching & Mentorship**  
+  Mentored graduate students and supported undergraduate and graduate teaching in communication systems, signal processing, and applied mathematics.
 
 6. Register a GitHub account if you don't have one and confirm your e-mail (required!)
 5. Fork [this template](https://github.com/academicpages/academicpages.github.io) by clicking the "Use this template" button in the top right. 
@@ -43,6 +61,8 @@ My work aims to unify communication, sensing, and computation into efficient and
 2. Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
 1. Check status by going to the repository settings, in the "GitHub pages" section
 
+
+<!--
 Site-wide configuration
 ------
 The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
@@ -66,3 +86,4 @@ Example: editing a Markdown file for a talk
 For more info
 ------
 More info about configuring Academic Pages can be found in [the guide](https://academicpages.github.io/markdown/), the [growing wiki](https://github.com/academicpages/academicpages.github.io/wiki), and you can always [ask a question on GitHub](https://github.com/academicpages/academicpages.github.io/discussions). The [guides for the Minimal Mistakes theme](https://mmistakes.github.io/minimal-mistakes/docs/configuration/) (which this theme was forked from) might also be helpful.
+-->
