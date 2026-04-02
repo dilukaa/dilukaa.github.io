@@ -1,15 +1,13 @@
-
 ---
-
 title: "Optimization on the Manifold for ISAC"
 order: 1
---------
+---
 
 ## Optimization on the Manifold for ISAC
 
-This work develops a Riemannian manifold approach for constrained resource allocation in integrated sensing and communication (ISAC). Rather than optimizing beamforming directly in a difficult non-convex Euclidean space, the method reformulates the variable on a structured manifold and updates it through geometric operations such as the Riemannian gradient, vector transport, and retraction.
+This work develops a Riemannian manifold approach for constrained resource allocation in integrated sensing and communication (ISAC). Rather than optimizing beamforming directly in a difficult non-convex Euclidean space, the method reformulates the beamforming variable on a structured manifold and updates it through geometric operations such as the Riemannian gradient, vector transport, and retraction.
 
-An augmented Lagrangian mechanism is then used to enforce sensing beampattern targets, user SINR constraints, and transmit power limits during the iterative process. This creates a clear geometric interpretation of how the beamforming solution evolves while preserving the joint communication and sensing objectives.
+An augmented Lagrangian mechanism is then used to enforce sensing beampattern targets, user SINR constraints, and transmit power limits during the iterative process. The resulting view is both algorithmic and geometric: the iterate moves along tangent directions, retracts back to the manifold, and updates its multipliers until the communication and sensing constraints are satisfied.
 
 *Paper: A Riemannian Manifold Approach to Constrained Resource Allocation in ISAC.*
 
@@ -17,7 +15,7 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
 <style>
-  .ialmo-panel {
+  .ialmo1-panel {
     width: 100%;
     max-width: 980px;
     margin: 1.5rem auto 0 auto;
@@ -29,7 +27,7 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     box-sizing: border-box;
   }
 
-  .ialmo-stage {
+  .ialmo1-stage {
     position: relative;
     width: 100%;
     height: 560px;
@@ -39,13 +37,13 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     background: linear-gradient(180deg, #f8fbff 0%, #eef5fb 100%);
   }
 
-  .ialmo-stage svg {
+  .ialmo1-stage svg {
     display: block;
     width: 100%;
     height: 100%;
   }
 
-  .ialmo-info {
+  .ialmo1-info {
     margin-top: 1rem;
     padding: 0.9rem 1rem;
     border-radius: 16px;
@@ -53,7 +51,7 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     border: 1px solid #e5e7eb;
   }
 
-  .ialmo-step {
+  .ialmo1-step {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -61,21 +59,21 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     margin-bottom: 0.35rem;
   }
 
-  .ialmo-title {
+  .ialmo1-title {
     font-size: 1.05rem;
     font-weight: 600;
     color: #111827;
     margin-bottom: 0.5rem;
   }
 
-  .ialmo-caption {
+  .ialmo1-caption {
     font-size: 0.95rem;
     line-height: 1.7;
     color: #4b5563;
     margin-bottom: 0.8rem;
   }
 
-  .ialmo-equation {
+  .ialmo1-equation {
     font-size: 0.95rem;
     line-height: 1.7;
     overflow-x: auto;
@@ -86,11 +84,11 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     padding: 0.85rem 0.9rem;
   }
 
-  .ialmo-equation .katex {
+  .ialmo1-equation .katex {
     font-size: 1.02em;
   }
 
-  .ialmo-controls {
+  .ialmo1-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -98,13 +96,13 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     margin-top: 0.9rem;
   }
 
-  .ialmo-dots {
+  .ialmo1-dots {
     display: flex;
     gap: 0.45rem;
     flex-wrap: wrap;
   }
 
-  .ialmo-dot {
+  .ialmo1-dot {
     width: 10px;
     height: 10px;
     border-radius: 999px;
@@ -115,17 +113,17 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     padding: 0;
   }
 
-  .ialmo-dot.active {
+  .ialmo1-dot.active {
     background: #111827;
     transform: scale(1.25);
   }
 
-  .ialmo-meta {
+  .ialmo1-meta {
     font-size: 0.8rem;
     color: #6b7280;
   }
 
-  .ialmo-button {
+  .ialmo1-button {
     border: 1px solid #d1d5db;
     background: #fff;
     color: #111827;
@@ -135,143 +133,175 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     cursor: pointer;
   }
 
-  .ialmo-label {
+  .ialmo1-label {
     font-size: 15px;
     fill: #1f2937;
   }
 
-  .ialmo-small {
+  .ialmo1-small {
     font-size: 13px;
     fill: #4b5563;
   }
 
-  .ialmo-hidden {
+  .ialmo1-hidden {
     opacity: 0;
     transition: opacity 0.45s ease, transform 0.45s ease;
     transform: translateY(8px);
     pointer-events: none;
   }
 
-  .ialmo-visible {
+  .ialmo1-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
+  .ialmo1-surface {
+    fill: url(#ialmo1-surface-grad);
+    stroke: rgba(100, 116, 139, 0.5);
+    stroke-width: 2;
+  }
+
+  .ialmo1-point {
+    transform-origin: center;
+    animation: ialmo1-point-pulse 2.2s ease-in-out infinite;
+  }
+
+  .ialmo1-pulse {
+    transform-origin: center;
+    animation: ialmo1-pulse 1.8s ease-in-out infinite;
+  }
+
+  .ialmo1-fade {
+    animation: ialmo1-soft-fade 1.8s ease-in-out infinite;
+  }
+
+  @keyframes ialmo1-point-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  @keyframes ialmo1-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.45; }
+    50% { transform: scale(1.45); opacity: 0.85; }
+  }
+
+  @keyframes ialmo1-soft-fade {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 1; }
+  }
+
   @media (max-width: 900px) {
-    .ialmo-stage {
+    .ialmo1-stage {
       height: 460px;
     }
   }
 
   @media (max-width: 640px) {
-    .ialmo-stage {
+    .ialmo1-stage {
       height: 340px;
     }
   }
 </style>
 
-<div class="ialmo-panel">
-  <div class="ialmo-stage">
+<div class="ialmo1-panel">
+  <div class="ialmo1-stage">
     <svg viewBox="0 0 760 460" preserveAspectRatio="xMidYMid meet" aria-label="IALMO manifold optimization animation">
       <defs>
-        <linearGradient id="ialmoSurface" x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id="ialmo1-surface-grad" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0%" stop-color="rgba(148,163,184,0.18)"></stop>
           <stop offset="100%" stop-color="rgba(56,189,248,0.22)"></stop>
         </linearGradient>
-        <linearGradient id="ialmoPlane" x1="0" x2="1" y1="0" y2="1">
+        <linearGradient id="ialmo1-plane-grad" x1="0" x2="1" y1="0" y2="1">
           <stop offset="0%" stop-color="rgba(16,185,129,0.22)"></stop>
           <stop offset="100%" stop-color="rgba(59,130,246,0.16)"></stop>
         </linearGradient>
-        <marker id="ialmoArrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+        <marker id="ialmo1-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
           <path d="M0,0 L0,6 L9,3 z" fill="#334155"></path>
         </marker>
       </defs>
 
-```
-  <path d="M85 355 C 120 170, 290 65, 450 110 C 595 150, 700 250, 676 395 L 85 395 Z" fill="url(#ialmoSurface)" stroke="rgba(100,116,139,0.5)" stroke-width="2"></path>
+      <path class="ialmo1-surface" d="M85 355 C 120 170, 290 65, 450 110 C 595 150, 700 250, 676 395 L 85 395 Z"></path>
 
-  <g id="scene-tangent-plane" class="ialmo-hidden">
-    <path d="M204 156 L 566 120 L 654 222 L 286 257 Z" fill="url(#ialmoPlane)" stroke="rgba(16,185,129,0.5)" stroke-width="2"></path>
-  </g>
+      <g id="ialmo1-tangent-plane" class="ialmo1-hidden">
+        <path d="M204 156 L 566 120 L 654 222 L 286 257 Z" fill="url(#ialmo1-plane-grad)" stroke="rgba(16,185,129,0.5)" stroke-width="2"></path>
+      </g>
 
-  <circle id="main-point" cx="332" cy="208" r="10" fill="rgba(15,23,42,0.92)"></circle>
-  <text x="348" y="212" class="ialmo-label">W̃_t</text>
+      <circle class="ialmo1-point" cx="332" cy="208" r="10" fill="rgba(15,23,42,0.92)"></circle>
+      <text x="348" y="212" class="ialmo1-label">W̃_t</text>
 
-  <g id="scene-0" class="ialmo-hidden">
-    <rect x="78" y="50" width="150" height="66" rx="16" fill="rgba(255,255,255,0.85)" stroke="rgba(148,163,184,0.7)"></rect>
-    <text x="98" y="78" class="ialmo-label" style="font-size: 21px;">W</text>
-    <text x="96" y="102" class="ialmo-small">beamforming matrix</text>
-    <path d="M230 83 C 275 82, 286 118, 322 146" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#ialmoArrow)"></path>
-    <text x="247" y="67" class="ialmo-small">append auxiliary vector z</text>
-    <rect x="472" y="50" width="205" height="74" rx="16" fill="rgba(255,255,255,0.85)" stroke="rgba(148,163,184,0.7)"></rect>
-    <text x="495" y="78" class="ialmo-label" style="font-size: 21px;">W̃</text>
-    <text x="492" y="103" class="ialmo-small">constrained on 𝓜</text>
-  </g>
+      <g id="ialmo1-scene-0" class="ialmo1-hidden">
+        <rect x="78" y="50" width="150" height="66" rx="16" fill="rgba(255,255,255,0.85)" stroke="rgba(148,163,184,0.7)"></rect>
+        <text x="98" y="78" class="ialmo1-label" style="font-size: 21px;">W</text>
+        <text x="96" y="102" class="ialmo1-small">beamforming matrix</text>
+        <path d="M230 83 C 275 82, 286 118, 322 146" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#ialmo1-arrow)"></path>
+        <text x="247" y="67" class="ialmo1-small">append auxiliary vector z</text>
+        <rect x="472" y="50" width="205" height="74" rx="16" fill="rgba(255,255,255,0.85)" stroke="rgba(148,163,184,0.7)"></rect>
+        <text x="495" y="78" class="ialmo1-label" style="font-size: 21px;">W̃</text>
+        <text x="492" y="103" class="ialmo1-small">constrained on 𝓜</text>
+      </g>
 
-  <g id="scene-1" class="ialmo-hidden">
-    <circle id="pulse-a" cx="230" cy="290" r="22" fill="rgba(239,68,68,0.18)"></circle>
-    <circle id="pulse-b" cx="470" cy="286" r="22" fill="rgba(239,68,68,0.18)"></circle>
-    <text x="170" y="340" class="ialmo-label">ĝ_n(W̃)</text>
-    <text x="406" y="336" class="ialmo-label">Ψ̂_k(W̃)</text>
-    <rect x="250" y="42" width="250" height="58" rx="18" fill="rgba(255,255,255,0.9)" stroke="rgba(239,68,68,0.45)"></rect>
-    <text x="290" y="76" class="ialmo-label" style="font-size: 20px;">L_ρ(W̃, λ, κ)</text>
-  </g>
+      <g id="ialmo1-scene-1" class="ialmo1-hidden">
+        <circle cx="230" cy="290" r="22" fill="rgba(239,68,68,0.18)" class="ialmo1-pulse"></circle>
+        <circle cx="470" cy="286" r="22" fill="rgba(239,68,68,0.18)" class="ialmo1-pulse" style="animation-delay: 0.2s;"></circle>
+        <text x="170" y="340" class="ialmo1-label">ĝ_n(W̃)</text>
+        <text x="406" y="336" class="ialmo1-label">Ψ̂_k(W̃)</text>
+        <rect x="250" y="42" width="250" height="58" rx="18" fill="rgba(255,255,255,0.9)" stroke="rgba(239,68,68,0.45)" class="ialmo1-fade"></rect>
+        <text x="290" y="76" class="ialmo1-label" style="font-size: 20px;">L_ρ(W̃, λ, κ)</text>
+      </g>
 
-  <g id="scene-2" class="ialmo-hidden">
-    <line x1="332" y1="208" x2="484" y2="156" stroke="rgb(124,58,237)" stroke-width="4" marker-end="url(#ialmoArrow)"></line>
-    <text x="392" y="145" class="ialmo-label">grad_W̃_t L_ρ</text>
-    <text x="200" y="145" class="ialmo-label">T_W̃_t 𝓜</text>
-  </g>
+      <g id="ialmo1-scene-2" class="ialmo1-hidden">
+        <line x1="332" y1="208" x2="484" y2="156" stroke="rgb(124,58,237)" stroke-width="4" marker-end="url(#ialmo1-arrow)"></line>
+        <text x="392" y="145" class="ialmo1-label">grad_W̃_t L_ρ</text>
+        <text x="200" y="145" class="ialmo1-label">T_W̃_t 𝓜</text>
+      </g>
 
-  <g id="scene-3" class="ialmo-hidden">
-    <circle cx="524" cy="228" r="9" fill="rgba(15,23,42,0.9)"></circle>
-    <text x="540" y="232" class="ialmo-label">W̃_(t+1)</text>
-    <line x1="332" y1="208" x2="448" y2="180" stroke="rgb(14,165,233)" stroke-width="4" marker-end="url(#ialmoArrow)"></line>
-    <text x="382" y="171" class="ialmo-label">η_t</text>
-    <path d="M454 176 C 488 182, 508 198, 520 219" fill="none" stroke="rgb(249,115,22)" stroke-width="4" marker-end="url(#ialmoArrow)"></path>
-    <text x="392" y="274" class="ialmo-small">vector transport</text>
-  </g>
+      <g id="ialmo1-scene-3" class="ialmo1-hidden">
+        <circle cx="524" cy="228" r="9" fill="rgba(15,23,42,0.9)"></circle>
+        <text x="540" y="232" class="ialmo1-label">W̃_(t+1)</text>
+        <line x1="332" y1="208" x2="448" y2="180" stroke="rgb(14,165,233)" stroke-width="4" marker-end="url(#ialmo1-arrow)"></line>
+        <text x="382" y="171" class="ialmo1-label">η_t</text>
+        <path d="M454 176 C 488 182, 508 198, 520 219" fill="none" stroke="rgb(249,115,22)" stroke-width="4" marker-end="url(#ialmo1-arrow)"></path>
+        <text x="392" y="274" class="ialmo1-small">vector transport</text>
+      </g>
 
-  <g id="scene-4" class="ialmo-hidden">
-    <line x1="332" y1="208" x2="486" y2="164" stroke="rgb(236,72,153)" stroke-width="4" stroke-dasharray="8 8" marker-end="url(#ialmoArrow)"></line>
-    <text x="408" y="150" class="ialmo-label">α_t η_t</text>
-    <path d="M486 164 C 536 175, 548 211, 520 244" fill="none" stroke="rgb(220,38,38)" stroke-width="4" marker-end="url(#ialmoArrow)"></path>
-    <circle cx="520" cy="244" r="9" fill="rgb(220,38,38)"></circle>
-    <text x="536" y="248" class="ialmo-label">W̃_(t+1)</text>
-    <text x="492" y="194" class="ialmo-small">retraction</text>
-  </g>
+      <g id="ialmo1-scene-4" class="ialmo1-hidden">
+        <line x1="332" y1="208" x2="486" y2="164" stroke="rgb(236,72,153)" stroke-width="4" stroke-dasharray="8 8" marker-end="url(#ialmo1-arrow)"></line>
+        <text x="408" y="150" class="ialmo1-label">α_t η_t</text>
+        <path d="M486 164 C 536 175, 548 211, 520 244" fill="none" stroke="rgb(220,38,38)" stroke-width="4" marker-end="url(#ialmo1-arrow)"></path>
+        <circle cx="520" cy="244" r="9" fill="rgb(220,38,38)"></circle>
+        <text x="536" y="248" class="ialmo1-label">W̃_(t+1)</text>
+        <text x="492" y="194" class="ialmo1-small">retraction</text>
+      </g>
 
-  <g id="scene-5" class="ialmo-hidden">
-    <rect x="100" y="54" width="132" height="52" rx="14" fill="rgba(255,255,255,0.9)" stroke="rgba(59,130,246,0.45)"></rect>
-    <rect x="282" y="54" width="132" height="52" rx="14" fill="rgba(255,255,255,0.9)" stroke="rgba(59,130,246,0.45)"></rect>
-    <rect x="464" y="54" width="132" height="52" rx="14" fill="rgba(255,255,255,0.9)" stroke="rgba(59,130,246,0.45)"></rect>
-    <text x="127" y="85" class="ialmo-label">λ_n</text>
-    <text x="310" y="85" class="ialmo-label">κ_k</text>
-    <text x="494" y="85" class="ialmo-label">ρ</text>
-    <path d="M168 114 C 178 154, 228 184, 294 200" fill="none" stroke="rgb(37,99,235)" stroke-width="4" marker-end="url(#ialmoArrow)"></path>
-    <path d="M352 114 C 360 154, 392 185, 416 198" fill="none" stroke="rgb(22,163,74)" stroke-width="4" marker-end="url(#ialmoArrow)"></path>
-    <path d="M534 114 C 545 162, 528 193, 478 215" fill="none" stroke="rgb(234,88,12)" stroke-width="4" marker-end="url(#ialmoArrow)"></path>
-    <text x="255" y="233" class="ialmo-small">constraint feedback</text>
-    <text x="518" y="292" class="ialmo-label">iterate until convergence</text>
-  </g>
+      <g id="ialmo1-scene-5" class="ialmo1-hidden">
+        <rect x="100" y="54" width="132" height="52" rx="14" fill="rgba(255,255,255,0.9)" stroke="rgba(59,130,246,0.45)"></rect>
+        <rect x="282" y="54" width="132" height="52" rx="14" fill="rgba(255,255,255,0.9)" stroke="rgba(59,130,246,0.45)"></rect>
+        <rect x="464" y="54" width="132" height="52" rx="14" fill="rgba(255,255,255,0.9)" stroke="rgba(59,130,246,0.45)"></rect>
+        <text x="127" y="85" class="ialmo1-label">λ_n</text>
+        <text x="310" y="85" class="ialmo1-label">κ_k</text>
+        <text x="494" y="85" class="ialmo1-label">ρ</text>
+        <path d="M168 114 C 178 154, 228 184, 294 200" fill="none" stroke="rgb(37,99,235)" stroke-width="4" marker-end="url(#ialmo1-arrow)"></path>
+        <path d="M352 114 C 360 154, 392 185, 416 198" fill="none" stroke="rgb(22,163,74)" stroke-width="4" marker-end="url(#ialmo1-arrow)"></path>
+        <path d="M534 114 C 545 162, 528 193, 478 215" fill="none" stroke="rgb(234,88,12)" stroke-width="4" marker-end="url(#ialmo1-arrow)"></path>
+        <text x="255" y="233" class="ialmo1-small">constraint feedback</text>
+        <text x="518" y="292" class="ialmo1-label">iterate until convergence</text>
+      </g>
 
-  <text x="40" y="36" class="ialmo-label" style="font-size: 20px;">IALMO manifold view</text>
-</svg>
-```
-
+      <text x="40" y="36" class="ialmo1-label" style="font-size: 20px;">IALMO manifold view</text>
+    </svg>
   </div>
 
-  <div class="ialmo-controls">
-    <div class="ialmo-dots" id="ialmo-dots"></div>
-    <button class="ialmo-button" id="ialmo-toggle" type="button">Pause</button>
+  <div class="ialmo1-controls">
+    <div class="ialmo1-dots" id="ialmo1-dots"></div>
+    <button class="ialmo1-button" id="ialmo1-toggle" type="button">Pause</button>
   </div>
 
-  <div class="ialmo-info">
-    <div class="ialmo-step">Current step</div>
-    <div class="ialmo-title" id="ialmo-info-title"></div>
-    <div class="ialmo-caption" id="ialmo-info-caption"></div>
-    <div class="ialmo-equation" id="ialmo-info-equation"></div>
-    <div class="ialmo-meta" id="ialmo-info-meta" style="margin-top: 0.65rem;"></div>
+  <div class="ialmo1-info">
+    <div class="ialmo1-step">Current step</div>
+    <div class="ialmo1-title" id="ialmo1-info-title"></div>
+    <div class="ialmo1-caption" id="ialmo1-info-caption"></div>
+    <div class="ialmo1-equation" id="ialmo1-info-equation"></div>
+    <div class="ialmo1-meta" id="ialmo1-info-meta" style="margin-top: 0.65rem;"></div>
   </div>
 </div>
 
@@ -321,33 +351,30 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
     }
 
     const sceneGroups = [
-      document.getElementById("scene-0"),
-      document.getElementById("scene-1"),
-      document.getElementById("scene-2"),
-      document.getElementById("scene-3"),
-      document.getElementById("scene-4"),
-      document.getElementById("scene-5")
+      document.getElementById("ialmo1-scene-0"),
+      document.getElementById("ialmo1-scene-1"),
+      document.getElementById("ialmo1-scene-2"),
+      document.getElementById("ialmo1-scene-3"),
+      document.getElementById("ialmo1-scene-4"),
+      document.getElementById("ialmo1-scene-5")
     ];
 
-    const tangentPlane = document.getElementById("scene-tangent-plane");
-    const dotsWrap = document.getElementById("ialmo-dots");
-    const toggleBtn = document.getElementById("ialmo-toggle");
-    const infoTitle = document.getElementById("ialmo-info-title");
-    const infoCaption = document.getElementById("ialmo-info-caption");
-    const infoEquation = document.getElementById("ialmo-info-equation");
-    const infoMeta = document.getElementById("ialmo-info-meta");
-    const pulseA = document.getElementById("pulse-a");
-    const pulseB = document.getElementById("pulse-b");
+    const tangentPlane = document.getElementById("ialmo1-tangent-plane");
+    const dotsWrap = document.getElementById("ialmo1-dots");
+    const toggleBtn = document.getElementById("ialmo1-toggle");
+    const infoTitle = document.getElementById("ialmo1-info-title");
+    const infoCaption = document.getElementById("ialmo1-info-caption");
+    const infoEquation = document.getElementById("ialmo1-info-equation");
+    const infoMeta = document.getElementById("ialmo1-info-meta");
 
     let current = 0;
     let playing = true;
     let timer = null;
-    let pulseTimer = null;
 
     function setVisible(el, visible) {
       if (!el) return;
-      el.classList.remove("ialmo-hidden", "ialmo-visible");
-      el.classList.add(visible ? "ialmo-visible" : "ialmo-hidden");
+      el.classList.remove("ialmo1-hidden", "ialmo1-visible");
+      el.classList.add(visible ? "ialmo1-visible" : "ialmo1-hidden");
     }
 
     function renderMath(element, latex) {
@@ -371,7 +398,7 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
       scenes.forEach(function (_, index) {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.className = "ialmo-dot" + (index === current ? " active" : "");
+        dot.className = "ialmo1-dot" + (index === current ? " active" : "");
         dot.setAttribute("aria-label", "Go to scene " + (index + 1));
         dot.addEventListener("click", function () {
           current = index;
@@ -380,20 +407,6 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
         });
         dotsWrap.appendChild(dot);
       });
-    }
-
-    function animatePulses() {
-      if (!pulseA || !pulseB) return;
-      let grow = true;
-      clearInterval(pulseTimer);
-      pulseTimer = setInterval(function () {
-        if (current !== 1) return;
-        pulseA.setAttribute("r", grow ? "32" : "22");
-        pulseB.setAttribute("r", grow ? "32" : "22");
-        pulseA.style.opacity = grow ? "0.85" : "0.45";
-        pulseB.style.opacity = grow ? "0.85" : "0.45";
-        grow = !grow;
-      }, 700);
     }
 
     function render() {
@@ -409,7 +422,6 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
       if (infoMeta) {
         infoMeta.textContent = "Scene " + (current + 1) + " of " + scenes.length + " " + scenes[current].label;
       }
-
       renderDots();
     }
 
@@ -446,7 +458,6 @@ An augmented Lagrangian mechanism is then used to enforce sensing beampattern ta
       if (window.katex || attemptsLeft <= 0) {
         render();
         start();
-        animatePulses();
         return;
       }
       window.setTimeout(function () {
