@@ -5,6 +5,16 @@ permalink: /research/
 author_profile: true
 ---
 
+{% assign items = site.research | sort: "order" %}
+
+{% for item in items %}
+  <article style="margin-bottom: 3rem;">
+    {{ item.content }}
+  </article>
+{% endfor %}
+
+
+
 <section style="margin-top: 2.5rem;">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
