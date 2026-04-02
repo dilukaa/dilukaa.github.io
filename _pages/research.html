@@ -331,37 +331,37 @@ author_profile: true
         {
           title: "From constrained beamforming to manifold optimization",
           caption: "The beamforming variable is lifted from W to the structured variable W-tilde and constrained on the complex sphere manifold.",
-          equation: String.raw`\\mathcal{M}=\\left\\{\\widetilde{\\mathbf{W}}\\in\\mathbb{C}^{(M+1)\\times K}\\mid \\mathrm{Tr}(\\widetilde{\\mathbf{W}}\\widetilde{\\mathbf{W}}^{H})=1\\right\\}`,
+          equation: String.raw`\mathcal{M}=\left\{\widetilde{\mathbf{W}}\in\mathbb{C}^{(M+1)\times K}\mid \mathrm{Tr}(\widetilde{\mathbf{W}}\widetilde{\mathbf{W}}^{H})=1\right\}`,
           label: "(13)"
         },
         {
           title: "Augmented Lagrangian enforces constraints",
           caption: "Sensing and SINR constraints are absorbed into the augmented Lagrangian, allowing manifold optimization while penalizing violations.",
-          equation: String.raw`L_{\\rho}(\\widetilde{\\mathbf{W}},\\boldsymbol{\\lambda},\\boldsymbol{\\kappa})`,
+          equation: String.raw`L_{\rho}(\widetilde{\mathbf{W}},\boldsymbol{\lambda},\boldsymbol{\kappa})`,
           label: "(15)"
         },
         {
           title: "Project Euclidean gradient to the tangent space",
           caption: "The search direction is computed on the tangent space through the Riemannian gradient.",
-          equation: String.raw`\\mathrm{grad}_{\\widetilde{\\mathbf{W}}_{t}}L_{\\rho}=\\nabla_{\\widetilde{\\mathbf{W}}_{t}}L_{\\rho}-\\Re\\!\\left\\{\\nabla_{\\widetilde{\\mathbf{W}}_{t}}L_{\\rho}\\circ \\widetilde{\\mathbf{W}}_{t}^{*}\\right\\}\\circ \\widetilde{\\mathbf{W}}_{t}`,
+          equation: String.raw`\mathrm{grad}_{\widetilde{\mathbf{W}}_{t}}L_{\rho}=\nabla_{\widetilde{\mathbf{W}}_{t}}L_{\rho}-\Re\!\left\{\nabla_{\widetilde{\mathbf{W}}_{t}}L_{\rho}\circ \widetilde{\mathbf{W}}_{t}^{*}\right\}\circ \widetilde{\mathbf{W}}_{t}`,
           label: "(17)"
         },
         {
           title: "Transport the search direction",
           caption: "The conjugate direction is transferred between tangent spaces before the next update.",
-          equation: String.raw`\\mathcal{T}_{\\widetilde{\\mathbf{W}}_{t}\\rightarrow \\widetilde{\\mathbf{W}}_{t+1}}(\\boldsymbol{\\eta}_{t})=\\boldsymbol{\\eta}_{t}-\\Re\\!\\left\\{\\boldsymbol{\\eta}_{t}\\circ \\widetilde{\\mathbf{W}}_{t+1}^{*}\\right\\}\\circ \\widetilde{\\mathbf{W}}_{t+1}`,
+          equation: String.raw`\mathcal{T}_{\widetilde{\mathbf{W}}_{t}\rightarrow \widetilde{\mathbf{W}}_{t+1}}(\boldsymbol{\eta}_{t})=\boldsymbol{\eta}_{t}-\Re\!\left\{\boldsymbol{\eta}_{t}\circ \widetilde{\mathbf{W}}_{t+1}^{*}\right\}\circ \widetilde{\mathbf{W}}_{t+1}`,
           label: "(20)"
         },
         {
           title: "Retract back onto the manifold",
           caption: "After taking a step along α_t η_t, retraction maps the iterate back to the manifold.",
-          equation: String.raw`\\mathcal{R}_{\\widetilde{\\mathbf{W}}_{t}}(\\alpha_{t}\\boldsymbol{\\eta}_{t})=\\mathrm{unt}(\\alpha_{t}\\boldsymbol{\\eta}_{t})`,
+          equation: String.raw`\mathcal{R}_{\widetilde{\mathbf{W}}_{t}}(\alpha_{t}\boldsymbol{\eta}_{t})=\mathrm{unt}(\alpha_{t}\boldsymbol{\eta}_{t})`,
           label: "(22)"
         },
         {
           title: "Update Lagrange multipliers and continue",
           caption: "The multipliers are clipped and updated so the optimization remains stable while enforcing constraints.",
-          equation: String.raw`\\lambda_{n}^{t+1}=\\mathrm{clip}_{[\\lambda_{n}^{\\min},\\lambda_{n}^{\\max}]}\\!\\left(\\lambda_{n}^{t}+\\rho_{t}\\hat{g}_{n}(\\widetilde{\\mathbf{W}}^{t+1})\\right)`,
+          equation: String.raw`\lambda_{n}^{t+1}=\mathrm{clip}_{[\lambda_{n}^{\min},\lambda_{n}^{\max}]}\!\left(\lambda_{n}^{t}+\rho_{t}\hat{g}_{n}(\widetilde{\mathbf{W}}^{t+1})\right)`,
           label: "(23)"
         }
       ];
