@@ -26,7 +26,7 @@ My research lies broadly in **wireless communications and signal processing**, w
 - Integrated sensing and communication (ISAC) and near-field ISAC
 - Reconfigurable intelligent surfaces (RIS)
 - Full-duplex wireless communication
-- Backscatter communication and ultra-low-power IoT systems
+- Backscatter communication and ultra-low-power Internet of Things (IoT) systems
 - Wireless power transfer and energy harvesting
 - Machine learning for wireless communications
 - Millimeter-wave and terahertz communications
