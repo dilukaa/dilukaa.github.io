@@ -61,7 +61,7 @@ order: 1
           <path d="M230 83 C 275 82, 286 118, 322 146" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#ialmo-arrow)"></path>
           <text x="247" y="67" class="ialmo-small">append auxiliary vector z</text>
           <rect x="472" y="50" width="205" height="74" rx="16" fill="rgba(255,255,255,0.85)" stroke="rgba(148,163,184,0.7)"></rect>
-          <text x="495" y="78" class="ialmo-label" style="font-size: 21px;">\( \tilde{\mathbf{W}} \)</text>
+          <text x="495" y="78" class="ialmo-label" style="font-size: 21px;"> W̃ </text>
           <text x="492" y="103" class="ialmo-small">constrained on 𝓜</text>
         </g>
 
@@ -327,37 +327,37 @@ order: 1
       {
         title: "From constrained beamforming to manifold optimization",
         caption: "The beamforming variable is lifted from W to the structured variable W-tilde and constrained on the complex sphere manifold.",
-        equation: String.raw`\mathcal{M}=\left\{\widetilde{\mathbf{W}}\in\mathbb{C}^{(M+1)\times K}\mid \mathrm{Tr}(\widetilde{\mathbf{W}}\widetilde{\mathbf{W}}^{H})=1\right\}`,
+        equation: String.raw`\mathcal{M}=\left\{\tilde{\mathbf{W}}\in\mathbb{C}^{(M+1)\times K}\mid \mathrm{Tr}(\tilde{\mathbf{W}}\tilde{\mathbf{W}}^{H})=1\right\}`,
         label: " "
       },
       {
         title: "Augmented Lagrangian enforces constraints",
         caption: "Sensing and SINR constraints are absorbed into the augmented Lagrangian, allowing manifold optimization while penalizing violations.",
-        equation: String.raw`L_{\rho}(\widetilde{\mathbf{W}},\boldsymbol{\lambda},\boldsymbol{\kappa})`,
+        equation: String.raw`L_{\rho}(\tilde{\mathbf{W}},\boldsymbol{\lambda},\boldsymbol{\kappa})`,
         label: " "
       },
       {
         title: "Project Euclidean gradient to the tangent space",
         caption: "The search direction is computed on the tangent space through the Riemannian gradient.",
-        equation: String.raw`\mathrm{grad}_{\widetilde{\mathbf{W}}_{t}}L_{\rho}=\nabla_{\widetilde{\mathbf{W}}_{t}}L_{\rho}-\Re\!\left\{\nabla_{\widetilde{\mathbf{W}}_{t}}L_{\rho}\circ \widetilde{\mathbf{W}}_{t}^{*}\right\}\circ \widetilde{\mathbf{W}}_{t}`,
+        equation: String.raw`\mathrm{grad}_{\tilde{\mathbf{W}}_{t}}L_{\rho}=\nabla_{\tilde{\mathbf{W}}_{t}}L_{\rho}-\Re\!\left\{\nabla_{\tilde{\mathbf{W}}_{t}}L_{\rho}\circ \tilde{\mathbf{W}}_{t}^{*}\right\}\circ \tilde{\mathbf{W}}_{t}`,
         label: " "
       },
       {
         title: "Transport the search direction",
         caption: "The conjugate direction is transferred between tangent spaces before the next update.",
-        equation: String.raw`\mathcal{T}_{\widetilde{\mathbf{W}}_{t}\rightarrow \widetilde{\mathbf{W}}_{t+1}}(\boldsymbol{\eta}_{t})=\boldsymbol{\eta}_{t}-\Re\!\left\{\boldsymbol{\eta}_{t}\circ \widetilde{\mathbf{W}}_{t+1}^{*}\right\}\circ \widetilde{\mathbf{W}}_{t+1}`,
+        equation: String.raw`\mathcal{T}_{\tilde{\mathbf{W}}_{t}\rightarrow \tilde{\mathbf{W}}_{t+1}}(\boldsymbol{\eta}_{t})=\boldsymbol{\eta}_{t}-\Re\!\left\{\boldsymbol{\eta}_{t}\circ \tilde{\mathbf{W}}_{t+1}^{*}\right\}\circ \tilde{\mathbf{W}}_{t+1}`,
         label: " "
       },
       {
         title: "Retract back onto the manifold",
         caption: "After taking a step along α_t η_t, retraction maps the iterate back to the manifold.",
-        equation: String.raw`\mathcal{R}_{\widetilde{\mathbf{W}}_{t}}(\alpha_{t}\boldsymbol{\eta}_{t})=\mathrm{unt}(\alpha_{t}\boldsymbol{\eta}_{t})`,
+        equation: String.raw`\mathcal{R}_{\tilde{\mathbf{W}}_{t}}(\alpha_{t}\boldsymbol{\eta}_{t})=\mathrm{unt}(\alpha_{t}\boldsymbol{\eta}_{t})`,
         label: " "
       },
       {
         title: "Update Lagrange multipliers and continue",
         caption: "The multipliers are clipped and updated so the optimization remains stable while enforcing constraints.",
-        equation: String.raw`\lambda_{n}^{t+1}=\mathrm{clip}_{[\lambda_{n}^{\min},\lambda_{n}^{\max}]}\!\left(\lambda_{n}^{t}+\rho_{t}\hat{g}_{n}(\widetilde{\mathbf{W}}^{t+1})\right)`,
+        equation: String.raw`\lambda_{n}^{t+1}=\mathrm{clip}_{[\lambda_{n}^{\min},\lambda_{n}^{\max}]}\!\left(\lambda_{n}^{t}+\rho_{t}\hat{g}_{n}(\tilde{\mathbf{W}}^{t+1})\right)`,
         label: " "
       }
     ];
