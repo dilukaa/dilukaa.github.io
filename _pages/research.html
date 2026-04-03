@@ -5,8 +5,8 @@ permalink: /research/
 author_profile: true
 ---
 
-{% assign ialmo = site.research | where: "slug", "ialmo" | first %}
-{% assign isabc_overview = site.research | where: "slug", "isabc_overview" | first %}
+{% assign ialmo = site.research | where: "path", "_research/ialmo.html" | first %}
+{% assign isabc_overview = site.research | where: "path", "_research/isabc_overview.html" | first %}
 
 {% if ialmo %}
   <article style="margin-bottom: 3rem;">
