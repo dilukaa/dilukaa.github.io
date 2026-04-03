@@ -56,7 +56,7 @@ order: 1
 
         <foreignObject x="346" y="194" width="120" height="34">
           <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-            <span class="ialmo-math-inline" data-latex="\widetilde{\mathbf{W}}_{t}"></span>
+            <span class="ialmo-math-inline" data-latex="\tilde{\mathbf{W}}_{t}"></span>
           </div>
         </foreignObject>
 
@@ -77,7 +77,7 @@ order: 1
 
           <foreignObject x="484" y="58" width="182" height="30">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center ialmo-fo-big">
-              <span class="ialmo-math-inline" data-latex="\widetilde{\mathbf{W}}"></span>
+              <span class="ialmo-math-inline" data-latex="\tilde{\mathbf{W}}"></span>
             </div>
           </foreignObject>
 
@@ -94,13 +94,13 @@ order: 1
 
           <foreignObject x="145" y="325" width="120" height="26">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-              <span class="ialmo-math-inline" data-latex="\hat{g}_{n}(\widetilde{\mathbf{W}})"></span>
+              <span class="ialmo-math-inline" data-latex="\hat{g}_{n}(\tilde{\mathbf{W}})"></span>
             </div>
           </foreignObject>
 
           <foreignObject x="385" y="321" width="130" height="26">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-              <span class="ialmo-math-inline" data-latex="\hat{\Psi}_{k}(\widetilde{\mathbf{W}})"></span>
+              <span class="ialmo-math-inline" data-latex="\hat{\Psi}_{k}(\tilde{\mathbf{W}})"></span>
             </div>
           </foreignObject>
 
@@ -108,7 +108,7 @@ order: 1
 
           <foreignObject x="265" y="57" width="220" height="28">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-              <span class="ialmo-math-inline" data-latex="L_{\rho}(\widetilde{\mathbf{W}},\boldsymbol{\lambda},\boldsymbol{\kappa})"></span>
+              <span class="ialmo-math-inline" data-latex="\mathcal{L}_{\rho}(\tilde{\mathbf{W}},\boldsymbol{\lambda},\boldsymbol{\kappa})"></span>
             </div>
           </foreignObject>
         </g>
@@ -118,13 +118,13 @@ order: 1
 
           <foreignObject x="370" y="126" width="170" height="26">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-              <span class="ialmo-math-inline" data-latex="\mathrm{grad}_{\widetilde{\mathbf{W}}_{t}}L_{\rho}"></span>
+              <span class="ialmo-math-inline" data-latex="\mathrm{grad}_{\tilde{\mathbf{W}}_{t}}\mathcal{L}_{\rho}"></span>
             </div>
           </foreignObject>
 
           <foreignObject x="184" y="126" width="130" height="26">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-              <span class="ialmo-math-inline" data-latex="T_{\widetilde{\mathbf{W}}_{t}}\mathcal{M}"></span>
+              <span class="ialmo-math-inline" data-latex="T_{\tilde{\mathbf{W}}_{t}}\mathcal{M}"></span>
             </div>
           </foreignObject>
         </g>
@@ -134,7 +134,7 @@ order: 1
 
           <foreignObject x="536" y="214" width="130" height="26">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-              <span class="ialmo-math-inline" data-latex="\widetilde{\mathbf{W}}_{t+1}"></span>
+              <span class="ialmo-math-inline" data-latex="\tilde{\mathbf{W}}_{t+1}"></span>
             </div>
           </foreignObject>
 
@@ -164,7 +164,7 @@ order: 1
 
           <foreignObject x="532" y="231" width="130" height="26">
             <div xmlns="http://www.w3.org/1999/xhtml" class="ialmo-fo-center">
-              <span class="ialmo-math-inline" data-latex="\widetilde{\mathbf{W}}_{t+1}"></span>
+              <span class="ialmo-math-inline" data-latex="\tilde{\mathbf{W}}_{t+1}"></span>
             </div>
           </foreignObject>
 
@@ -441,37 +441,37 @@ order: 1
       {
         title: "From constrained beamforming to manifold optimization",
         caption: "The beamforming variable is lifted from W to the structured variable on the manifold and normalized through the lifted formulation.",
-        equation: String.raw`\mathcal{M}=\left\{\widetilde{\mathbf{W}}\in\mathbb{C}^{(M+1)\times K}\mid \mathrm{Tr}(\widetilde{\mathbf{W}}\widetilde{\mathbf{W}}^{H})=1\right\}`,
+        equation: String.raw`\mathcal{M}=\left\{\tilde{\mathbf{W}}\in\mathbb{C}^{(M+1)\times K}\mid \mathrm{Tr}(\tilde{\mathbf{W}}\tilde{\mathbf{W}}^{H})=1\right\}`,
         label: ""
       },
       {
         title: "Augmented Lagrangian enforces constraints",
         caption: "Sensing and SINR constraints are absorbed into the augmented Lagrangian, allowing manifold optimization while penalizing violations.",
-        equation: String.raw`L_{\rho}(\widetilde{\mathbf{W}},\boldsymbol{\lambda},\boldsymbol{\kappa})`,
+        equation: String.raw`\mathcal{L}_{\rho}(\tilde{\mathbf{W}},\boldsymbol{\lambda},\boldsymbol{\kappa})`,
         label: ""
       },
       {
         title: "Project Euclidean gradient to the tangent space",
         caption: "The search direction is computed on the tangent space through the Riemannian gradient.",
-        equation: String.raw`\mathrm{grad}_{\widetilde{\mathbf{W}}_{t}}L_{\rho}=\nabla_{\widetilde{\mathbf{W}}_{t}}L_{\rho}-\Re\!\left\{\nabla_{\widetilde{\mathbf{W}}_{t}}L_{\rho}\circ \widetilde{\mathbf{W}}_{t}^{*}\right\}\circ \widetilde{\mathbf{W}}_{t}`,
+        equation: String.raw`\mathrm{grad}_{\tilde{\mathbf{W}}_{t}}\mathcal{L}_{\rho}=\nabla_{\tilde{\mathbf{W}}_{t}}\mathcal{L}_{\rho}-\Re\!\left\{\nabla_{\tilde{\mathbf{W}}_{t}}\mathcal{L}_{\rho}\circ \tilde{\mathbf{W}}_{t}^{*}\right\}\circ \tilde{\mathbf{W}}_{t}`,
         label: ""
       },
       {
         title: "Transport the search direction",
         caption: "The conjugate direction is transferred between tangent spaces before the next update.",
-        equation: String.raw`\mathcal{T}_{\widetilde{\mathbf{W}}_{t}\rightarrow \widetilde{\mathbf{W}}_{t+1}}(\boldsymbol{\eta}_{t})=\boldsymbol{\eta}_{t}-\Re\!\left\{\boldsymbol{\eta}_{t}\circ \widetilde{\mathbf{W}}_{t+1}^{*}\right\}\circ \widetilde{\mathbf{W}}_{t+1}`,
+        equation: String.raw`\mathcal{T}_{\tilde{\mathbf{W}}_{t}\rightarrow \tilde{\mathbf{W}}_{t+1}}(\boldsymbol{\eta}_{t})=\boldsymbol{\eta}_{t}-\Re\!\left\{\boldsymbol{\eta}_{t}\circ \tilde{\mathbf{W}}_{t+1}^{*}\right\}\circ \tilde{\mathbf{W}}_{t+1}`,
         label: ""
       },
       {
         title: "Retract back onto the manifold",
         caption: "After taking a step along the search direction, retraction maps the iterate back to the manifold.",
-        equation: String.raw`\mathcal{R}_{\widetilde{\mathbf{W}}_{t}}(\alpha_{t}\boldsymbol{\eta}_{t})=\mathrm{unt}(\alpha_{t}\boldsymbol{\eta}_{t})`,
+        equation: String.raw`\mathcal{R}_{\tilde{\mathbf{W}}_{t}}(\alpha_{t}\boldsymbol{\eta}_{t})=\mathrm{unt}(\alpha_{t}\boldsymbol{\eta}_{t})`,
         label: ""
       },
       {
         title: "Update Lagrange multipliers and continue",
         caption: "The multipliers are clipped and updated so the optimization remains stable while enforcing constraints.",
-        equation: String.raw`\lambda_{n}^{t+1}=\mathrm{clip}_{[\lambda_{n}^{\min},\lambda_{n}^{\max}]}\!\left(\lambda_{n}^{t}+\rho_{t}\hat{g}_{n}(\widetilde{\mathbf{W}}^{t+1})\right)`,
+        equation: String.raw`\lambda_{n}^{t+1}=\mathrm{clip}_{[\lambda_{n}^{\min},\lambda_{n}^{\max}]}\!\left(\lambda_{n}^{t}+\rho_{t}\hat{g}_{n}(\tilde{\mathbf{W}}^{t+1})\right)`,
         label: ""
       }
     ];
