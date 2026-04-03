@@ -133,9 +133,9 @@ order: 2
         </g>
 
         <g id="isabc-links">
-          <!-- Scene 1 -->
-          <path id="isabc-link-isac-out" class="isabc-hidden isabc-link-blue" d="M188 250 C 300 195, 410 215, 504 342"></path>
-          <path id="isabc-link-isac-back" class="isabc-hidden isabc-link-green" d="M516 338 C 410 286, 312 276, 206 320"></path>
+          <!-- Scene 1: separated, non-crossing routes -->
+          <path id="isabc-link-isac-out" class="isabc-hidden isabc-link-blue" d="M190 246 C 280 188, 390 210, 500 346"></path>
+          <path id="isabc-link-isac-back" class="isabc-hidden isabc-link-green" d="M548 344 C 470 362, 356 352, 214 312"></path>
 
           <!-- Main tag scenes -->
           <path id="isabc-link-direct" class="isabc-hidden isabc-link-blue" d="M194 260 C 420 170, 720 150, 910 315"></path>
@@ -205,7 +205,8 @@ order: 2
           </g>
         </g>
 
-        <g id="isabc-legend" class="isabc-hidden" transform="translate(40, 100)" filter="url(#isabc-soft-shadow)">
+        <!-- Legend stays at the bottom, as before -->
+        <g id="isabc-legend" class="isabc-hidden" transform="translate(40, 542)" filter="url(#isabc-soft-shadow)">
           <rect width="700" height="48" rx="16" fill="url(#isabc-card-grad)" stroke="#e2e8f0"></rect>
 
           <g transform="translate(20, 0)">
@@ -483,7 +484,7 @@ order: 2
         label: "ISABC idea",
         title: "The key step: replace the sensing target with a tag",
         caption: "In ISABC, the backscatter tag is no longer only a communication device. The same reflected signal now serves a dual role: it carries data to the user and reveals sensing information to the base station.",
-        show: ["isabc-tag-group", "isabc-link-direct", "isabc-link-bs-tag", "isabc-link-tag-user", "isabc-link-tag-bs", "isabc-callout-dual", "isabc-legend"]
+        show: ["isabc-tag-group", "isabc-link-direct", "isabc-link-bs-tag", "isabc-link-tag-user", "isabc-link-tag-bs", "isabc-callout-dual"]
       },
       {
         label: "Shared waveform",
@@ -598,8 +599,11 @@ order: 2
       toggleBtn.addEventListener("click", function () {
         playing = !playing;
         toggleBtn.textContent = playing ? "Pause" : "Play";
-        if (playing) start();
-        else stop();
+        if (playing) {
+          start();
+        } else {
+          stop();
+        }
       });
     }
 
