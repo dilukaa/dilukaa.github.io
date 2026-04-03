@@ -5,11 +5,17 @@ permalink: /research/
 author_profile: true
 ---
 
-{% assign items = site.research | sort: "order" %}
+{% assign ialmo = site.research | where: "slug", "ialmo" | first %}
+{% assign isabc_overview = site.research | where: "slug", "isabc_overview" | first %}
 
-{% for item in items %}
+{% if ialmo %}
   <article style="margin-bottom: 3rem;">
-    {{ item.content }}
+    {{ ialmo.content }}
   </article>
-{% endfor %}
+{% endif %}
 
+{% if isabc_overview %}
+  <article style="margin-bottom: 3rem;">
+    {{ isabc_overview.content }}
+  </article>
+{% endif %}
