@@ -5,18 +5,18 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% include base_path %}
-
 {% if site.author.googlescholar %}
   <div class="wordwrap">
     You can also find my articles on
-    <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.
+    <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.
   </div>
 {% endif %}
 
+{% include base_path %}
+
 <style>
   .pub-years {
-    margin: 20px 0 10px 0;
+    margin: 20px 0 20px 0;
     padding: 12px 0;
     border-top: 1px solid #6c9a8b;
     border-bottom: 1px solid #6c9a8b;
@@ -28,33 +28,36 @@ author_profile: true
     color: #2f7f68;
     text-decoration: none;
     margin: 0 6px;
-    font-size: 1.1em;
+    font-size: 1.05em;
+    cursor: pointer;
   }
 
   .pub-years a:hover {
     text-decoration: underline;
   }
 
-  .pub-note {
+  .pub-years a.active {
+    font-weight: bold;
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .year-publications {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .year-publications.active {
+    display: block;
+  }
+
+  .pub-heading {
+    text-align: center;
+    color: #2f7f68;
     margin-top: 10px;
-    font-size: 1.05em;
+    margin-bottom: 20px;
   }
 </style>
-
-<p class="pub-note">Please click a year to view the corresponding publications.</p>
-
-<div class="pub-years">
-  <a href="{{ base_path }}/publications/2026/">2026</a> |
-  <a href="{{ base_path }}/publications/2025/">2025</a> |
-  <a href="{{ base_path }}/publications/2024/">2024</a> |
-  <a href="{{ base_path }}/publications/2023/">2023</a> |
-  <a href="{{ base_path }}/publications/2022/">2022</a> |
-  <a href="{{ base_path }}/publications/2021/">2021</a> |
-  <a href="{{ base_path }}/publications/2020/">2020</a> |
-  <a href="{{ base_path }}/publications/2019/">2019</a> |
-  <a href="{{ base_path }}/publications/2018/">2018</a> |
-  <a href="{{ base_path }}/publications/2017/">2017</a>
-</div>
 
 <h2>Books</h2>
 <hr>
@@ -83,6 +86,199 @@ author_profile: true
   </li>
 </ol>
 
-<h2>Browse by Year</h2>
+<h2>Journals and Conference Publications</h2>
 <hr>
-<p>Select a year above to see only the publications from that year.</p>
+
+<p>Please click a year to view the corresponding publications.</p>
+
+<div class="pub-years">
+  <a onclick="showYear('2026', this)" class="active">2026</a> |
+  <a onclick="showYear('2025', this)">2025</a> |
+  <a onclick="showYear('2024', this)">2024</a> |
+  <a onclick="showYear('2023', this)">2023</a> |
+  <a onclick="showYear('2022', this)">2022</a> |
+  <a onclick="showYear('2021', this)">2021</a> |
+  <a onclick="showYear('2020', this)">2020</a> |
+  <a onclick="showYear('2019', this)">2019</a> |
+  <a onclick="showYear('2018', this)">2018</a> |
+  <a onclick="showYear('2017', this)">2017</a>
+</div>
+
+<div id="pub-2026" class="year-publications active">
+  <h3 class="pub-heading">Publications in 2026</h3>
+  <ol>
+    <li>
+      <strong>Diluka Galappaththige</strong>, Mohammadali Mohammadi, Gayan Amarasuriya, and Chintha Tellambura,
+      “Cell-Free Integrated Sensing and Communication: Principles, Advances, and Future Directions,”
+      <i>Proceedings of the IEEE</i>, 2026.
+      <a href="/papers/sample.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong> and Chintha Tellambura,
+      “Wideband NF-ISAC: Subcarrier Allocation for Sensing and Beamforming,”
+      <i>IEEE Wireless Communications Letters</i>, 2026.
+      <a href="/papers/wideband_nf_isac_subcarrier_allocation_for_sensing_and_beamforming.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      Shayan Zargari, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+      “Adaptive Neural Gradient Descent Method for Dual Objective Optimization in ISAC Systems,”
+      <i>IEEE Consumer Communications & Networking Conference (CCNC)</i>, 2026.
+      <a href="/papers/adaptive_neural_gradient_descent_method_for_dual_objective_optimization_in_isac_systems.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+  </ol>
+</div>
+
+<div id="pub-2025" class="year-publications">
+  <h3 class="pub-heading">Publications in 2025</h3>
+  <ol>
+    <li>
+      <strong>Diluka Galappaththige</strong> and Chintha Tellambura,
+      “Low-Complexity Beamforming for NF Secure ISAC,”
+      <i>IEEE Wireless Communications Letters</i>, 2025.
+      <a href="/papers/low_complexity_beamforming_for_nf_secure_isac.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Chintha Tellambura, and Sanjeewa Herath,
+      “Wideband Cognitive Radio for Joint Communication and Sensing: Optimization of Subcarrier Allocation and Beamforming,”
+      <i>IEEE Transactions on Cognitive Communications and Networking</i>, 2025.
+      <a href="/papers/wideband_cognitive_radio_for_joint_communication_and_sensing_optimization_of_subcarrier_allocation_and_beamforming.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Mohammadali Mohammadi, Hien Quoc Ngo, Michail Matthaiou, and Chintha Tellambura,
+      “Cell-Free Full-Duplex Communication – An Overview,”
+      <i>IEEE Transactions on Communications</i>, 2025.
+      <a href="/papers/cell_free_full_duplex_communication_an_overview.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      Shayan Zargari, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+      “Low-Complexity CRB Minimization for ISAC with A Generalized Target Response Matrix,”
+      <i>IEEE Wireless Communications Letters</i>, 2025.
+      <a href="/papers/low_complexity_crb_minimization_for_isac_with_a_generalized_target_response_matrix.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      Shayan Zargari, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+      “Downlink Beamforming for Cell-Free ISAC: A Fast Complex Oblique Manifold Approach,”
+      <i>IEEE Transactions on Wireless Communications</i>, 2025.
+      <a href="/papers/downlink_beamforming_for_cell_free_isac_a_fast_complex_oblique_manifold_approach.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Shayan Zargari, Chintha Tellambura, and Geoffrey Ye Li,
+      “Low-Complexity Multi-Target Detection in ELAA ISAC,”
+      <i>IEEE Communications Letters</i>, 2025.
+      <a href="/papers/low_complexity_multi_target_detection_in_elaa_isac.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Shayan Zargari, and Chintha Tellambura,
+      “Dual Function of Sensing and Backscatter Communication in Cellular Networks,”
+      <i>IEEE Internet of Things Magazine</i>, 2025.
+      <a href="/papers/dual_function_of_sensing_and_backscatter_communication_in_cellular_networks.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Shayan Zargari, Chintha Tellambura, and Geoffrey Ye Li,
+      “Optimization of Rate-Splitting Multiple Access with Integrated Sensing and Backscatter Communication,”
+      <i>IEEE Transactions on Vehicular Technology</i>, 2025.
+      <a href="/papers/optimization_of_rate_splitting_multiple_access_with_integrated_sensing_and_backscatter_communication.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      Shayan Zargari, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+      “Transmit Power-Efficient Beamforming Design for Integrated Sensing and Backscatter Communication,”
+      <i>IEEE Open Journal of the Communications Society</i>, 2025.
+      <a href="/papers/transmit_power_efficient_beamforming_design_for_integrated_sensing_and_backscatter_communication.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Mohammadali Mohammadi, and Chintha Tellambura,
+      “Concurrent, Scheduled, or Hybrid Transmission Protocol for ISAC,”
+      <i>IEEE International Conference on Communications (ICC)</i>, 2025.
+      <a href="/papers/concurrent_scheduled_or_hybrid_transmission_protocol_for_isac.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+  </ol>
+</div>
+
+<div id="pub-2024" class="year-publications">
+  <h3 class="pub-heading">Publications in 2024</h3>
+  <ol>
+    <li>
+      Shayan Zargari, <strong>Diluka Galappaththige</strong>, Chintha Tellambura, and Vincent Poor,
+      “A Riemannian Manifold Approach to Constrained Resource Allocation in ISAC,”
+      <i>IEEE Transactions on Communications</i>, 2024.
+      <a href="/papers/a_riemannian_manifold_approach_to_constrained_resource_allocation_in_isac.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      Azar Hakimi, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+      “A Roadmap for NF ISAC in 6G: A Comprehensive Overview and Tutorial,”
+      <i>Entropy</i>, 2024.
+      <a href="/papers/a_roadmap_for_nf_isac_in_6g_a_comprehensive_overview_and_tutorial.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Fatemeh Rezaei, Chintha Tellambura, and Amine Maaref,
+      “Cell-Free Bistatic Backscatter Communication: Channel Estimation, Optimization, and Performance Analysis,”
+      <i>IEEE Transactions on Communications</i>, 2024.
+      <a href="/papers/cell_free_bistatic_backscatter_communication_channel_estimation_optimization_and_performance_analysis.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Shayan Zargari, Chintha Tellambura, and Geoffrey Ye Li,
+      “Near-Field ISAC: Beamforming for Multi-Target Detection,”
+      <i>IEEE Wireless Communications Letters</i>, 2024.
+      <a href="/papers/near_field_isac_beamforming_for_multi_target_detection.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Fatemeh Rezaei, Chintha Tellambura, and Sanjeewa Herath,
+      “Optimizing Passive Tag Performance with Reconfigurable Intelligent Surfaces in Bistatic Backscatter Networks,”
+      <i>IEEE Transactions on Vehicular Technology</i>, 2024.
+      <a href="/papers/optimizing_passive_tag_performance_with_reconfigurable_intelligent_surfaces_in_bistatic_backscatter_networks.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong> and Chintha Tellambura,
+      “Sum Rate Maximization for RSMA-Assisted CF mMIMO Networks with SWIPT Users,”
+      <i>IEEE Wireless Communications Letters</i>, 2024.
+      <a href="/papers/sum_rate_maximization_for_rsma_assisted_cf_mmimo_networks_with_swipt_users.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      Shayan Zargari, <strong>Diluka Galappaththige</strong>, and Chintha Tellambura,
+      “Joint Design of Beamforming and Reflection Coefficients in Integrated Sensing and Backscatter Communication Systems,”
+      <i>18th Canadian Workshop on Information Theory (CWIT)</i>, 2024.
+      <a href="/papers/joint_design_of_beamforming_and_reflection_coefficients_in_integrated_sensing_and_backscatter_communication_systems.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+
+    <li>
+      <strong>Diluka Galappaththige</strong>, Fatemeh Rezaei, and Chintha Tellambura,
+      “Distributed RF-Emitter Power Allocation for BiBC,”
+      <i>IEEE International Conference on Communications (ICC)</i>, 2024.
+      <a href="/papers/distributed_rf_emitter_power_allocation_for_bibc.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
+    </li>
+  </ol>
+</div>
+
+<script>
+  function showYear(year, element) {
+    var sections = document.querySelectorAll('.year-publications');
+    sections.forEach(function(section) {
+      section.classList.remove('active');
+    });
+
+    var links = document.querySelectorAll('.pub-years a');
+    links.forEach(function(link) {
+      link.classList.remove('active');
+    });
+
+    document.getElementById('pub-' + year).classList.add('active');
+    element.classList.add('active');
+  }
+</script>
