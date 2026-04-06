@@ -6,8 +6,16 @@ author_profile: true
 mathjax: true
 ---
 
+{% assign stcib = site.research | where: "path", "_research/stcib.html" | first %}
 {% assign ialmo = site.research | where: "path", "_research/ialmo.html" | first %}
 {% assign isabc_overview = site.research | where: "path", "_research/isabc_overview.html" | first %}
+
+
+{% if ialmo %}
+  <article style="margin-bottom: 3rem;">
+    {{ stcib.content }}
+  </article>
+{% endif %}
 
 {% if ialmo %}
   <article style="margin-bottom: 3rem;">
