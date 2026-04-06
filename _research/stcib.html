@@ -20,7 +20,7 @@ order: 1
 
   <div class="stcib-panel">
     <div class="stcib-stage">
-      <svg viewBox="0 0 920 460" preserveAspectRatio="xMidYMid meet" aria-label="STCIB set transformer animation">
+      <svg viewBox="0 0 940 480" preserveAspectRatio="xMidYMid meet" aria-label="STCIB set transformer animation">
         <defs>
           <linearGradient id="stcib-bg-grad" x1="0" x2="1" y1="0" y2="1">
             <stop offset="0%" stop-color="rgba(241,245,249,0.95)"></stop>
@@ -43,198 +43,206 @@ order: 1
           </marker>
         </defs>
 
-        <rect x="0" y="0" width="920" height="460" fill="url(#stcib-bg-grad)"></rect>
+        <rect x="0" y="0" width="940" height="480" fill="url(#stcib-bg-grad)"></rect>
 
-        <rect x="28" y="34" width="864" height="392" rx="26" fill="url(#stcib-card-grad)" stroke="rgba(148,163,184,0.35)" stroke-width="1.5"></rect>
+        <rect x="28" y="34" width="884" height="412" rx="26" fill="url(#stcib-card-grad)" stroke="rgba(148,163,184,0.35)" stroke-width="1.5"></rect>
 
-        <text x="60" y="72" class="stcib-label" style="font-size:20px;">STCIB conceptual view</text>
-        <text x="60" y="96" class="stcib-small">from unordered channels to attention-based beamforming</text>
+        <text x="60" y="74" class="stcib-label" style="font-size:20px;">STCIB conceptual view</text>
+        <text x="60" y="99" class="stcib-small">from unordered channels to attention-based beamforming</text>
 
+        <!-- Base system shown across scenes -->
         <g id="stcib-base-system">
           <g class="stcib-node stcib-ap">
-            <rect x="128" y="140" width="36" height="36" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
-            <text x="146" y="129" text-anchor="middle" class="stcib-small">AP₁</text>
+            <rect x="128" y="148" width="36" height="36" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+            <text x="146" y="136" text-anchor="middle" class="stcib-small">AP₁</text>
           </g>
           <g class="stcib-node stcib-ap">
-            <rect x="214" y="252" width="36" height="36" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
-            <text x="232" y="241" text-anchor="middle" class="stcib-small">AP₂</text>
+            <rect x="218" y="266" width="36" height="36" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+            <text x="236" y="254" text-anchor="middle" class="stcib-small">AP₂</text>
           </g>
           <g class="stcib-node stcib-ap">
-            <rect x="154" y="356" width="36" height="36" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
-            <text x="172" y="345" text-anchor="middle" class="stcib-small">AP₃</text>
+            <rect x="156" y="374" width="36" height="36" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+            <text x="174" y="362" text-anchor="middle" class="stcib-small">AP₃</text>
           </g>
 
           <g class="stcib-node stcib-user">
-            <circle cx="336" cy="158" r="17" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
-            <text x="336" y="129" text-anchor="middle" class="stcib-small">U₁</text>
+            <circle cx="346" cy="166" r="17" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+            <text x="346" y="136" text-anchor="middle" class="stcib-small">U₁</text>
           </g>
           <g class="stcib-node stcib-user">
-            <circle cx="392" cy="268" r="17" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
-            <text x="392" y="239" text-anchor="middle" class="stcib-small">U₂</text>
+            <circle cx="404" cy="282" r="17" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+            <text x="404" y="252" text-anchor="middle" class="stcib-small">U₂</text>
           </g>
           <g class="stcib-node stcib-user">
-            <circle cx="320" cy="370" r="17" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
-            <text x="320" y="341" text-anchor="middle" class="stcib-small">U₃</text>
+            <circle cx="330" cy="390" r="17" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+            <text x="330" y="360" text-anchor="middle" class="stcib-small">U₃</text>
           </g>
 
           <g class="stcib-node stcib-target">
-            <polygon points="492,188 500,208 521,208 504,220 511,241 492,228 473,241 480,220 463,208 484,208" fill="rgba(245,158,11,0.22)" stroke="rgba(217,119,6,0.9)" stroke-width="2"></polygon>
-            <text x="492" y="176" text-anchor="middle" class="stcib-small">target</text>
+            <polygon points="504,194 512,214 533,214 516,226 523,248 504,234 485,248 492,226 475,214 496,214" fill="rgba(245,158,11,0.22)" stroke="rgba(217,119,6,0.9)" stroke-width="2"></polygon>
+            <text x="504" y="181" text-anchor="middle" class="stcib-small">target</text>
           </g>
         </g>
 
+        <!-- Feature-set card used only in scene 0 -->
         <g id="stcib-data-matrix" class="stcib-hidden">
-          <rect x="640" y="118" width="188" height="228" rx="20" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"></rect>
-          <text x="734" y="146" text-anchor="middle" class="stcib-label">unordered feature set</text>
-          <text x="734" y="168" text-anchor="middle" class="stcib-small">channel estimates after I/Q transform</text>
+          <rect x="654" y="122" width="194" height="232" rx="20" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"></rect>
+          <text x="751" y="150" text-anchor="middle" class="stcib-label">unordered feature set</text>
+          <text x="751" y="172" text-anchor="middle" class="stcib-small">channel estimates after I/Q transform</text>
 
-          <g transform="translate(672,198)">
-            <rect width="124" height="114" rx="14" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.28)"></rect>
+          <g transform="translate(686,202)">
+            <rect width="128" height="116" rx="14" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.28)"></rect>
             <g>
               <rect x="12" y="12" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
-              <rect x="38" y="12" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
-              <rect x="64" y="12" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
-              <rect x="90" y="12" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
+              <rect x="40" y="12" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+              <rect x="68" y="12" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+              <rect x="96" y="12" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
 
-              <rect x="12" y="38" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
-              <rect x="38" y="38" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
-              <rect x="64" y="38" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
-              <rect x="90" y="38" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+              <rect x="12" y="40" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+              <rect x="40" y="40" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+              <rect x="68" y="40" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
+              <rect x="96" y="40" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
 
-              <rect x="12" y="64" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
-              <rect x="38" y="64" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
-              <rect x="64" y="64" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
-              <rect x="90" y="64" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+              <rect x="12" y="68" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+              <rect x="40" y="68" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
+              <rect x="68" y="68" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+              <rect x="96" y="68" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
             </g>
           </g>
 
-          <path d="M530 236 C 570 236, 596 236, 632 236" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+          <path d="M548 240 C 590 240, 616 240, 646 240" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
         </g>
 
+        <!-- Scene 0 -->
         <g id="stcib-scene-0" class="stcib-hidden">
-          <rect x="628" y="78" width="214" height="84" rx="16" fill="rgba(255,255,255,0.94)" stroke="rgba(148,163,184,0.55)"></rect>
-          <foreignObject x="646" y="95" width="178" height="28">
+          <rect x="638" y="78" width="226" height="86" rx="16" fill="rgba(255,255,255,0.94)" stroke="rgba(148,163,184,0.55)"></rect>
+          <foreignObject x="656" y="95" width="190" height="28">
             <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center stcib-fo-big">
               <span class="stcib-math-inline" data-latex="\mathcal{F}=\{\hat{f}_1,\ldots,\hat{f}_K\}"></span>
             </div>
           </foreignObject>
-          <text x="735" y="145" text-anchor="middle" class="stcib-small">set-structured input, no preferred order</text>
+          <text x="751" y="146" text-anchor="middle" class="stcib-small">set-structured input, no preferred order</text>
 
-          <circle cx="146" cy="158" r="30" fill="rgba(59,130,246,0.08)" class="stcib-pulse"></circle>
-          <circle cx="336" cy="158" r="30" fill="rgba(16,185,129,0.08)" class="stcib-pulse" style="animation-delay:0.25s;"></circle>
-          <circle cx="492" cy="216" r="34" fill="rgba(245,158,11,0.10)" class="stcib-pulse" style="animation-delay:0.45s;"></circle>
+          <circle cx="146" cy="166" r="30" fill="rgba(59,130,246,0.08)" class="stcib-pulse"></circle>
+          <circle cx="346" cy="166" r="30" fill="rgba(16,185,129,0.08)" class="stcib-pulse" style="animation-delay:0.25s;"></circle>
+          <circle cx="504" cy="221" r="34" fill="rgba(245,158,11,0.10)" class="stcib-pulse" style="animation-delay:0.45s;"></circle>
         </g>
 
+        <!-- Scene 1 -->
         <g id="stcib-scene-1" class="stcib-hidden">
-          <rect x="640" y="104" width="180" height="246" rx="20" fill="rgba(255,255,255,0.94)" stroke="rgba(148,163,184,0.5)"></rect>
-          <text x="730" y="128" text-anchor="middle" class="stcib-label">iterative solver</text>
-          <circle cx="730" cy="220" r="58" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="4" stroke-dasharray="10 10"></circle>
-          <path d="M730 162 C 770 162, 794 208, 768 246" fill="none" stroke="rgb(239,68,68)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
-          <path d="M726 278 C 686 274, 662 228, 688 192" fill="none" stroke="rgb(239,68,68)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
-          <text x="730" y="223" text-anchor="middle" class="stcib-small">repeat</text>
-          <text x="730" y="244" text-anchor="middle" class="stcib-small">update</text>
-          <text x="730" y="318" text-anchor="middle" class="stcib-small">high online complexity</text>
+          <rect x="654" y="106" width="184" height="250" rx="20" fill="rgba(255,255,255,0.94)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="746" y="132" text-anchor="middle" class="stcib-label">iterative solver</text>
+          <circle cx="746" cy="226" r="58" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="4" stroke-dasharray="10 10"></circle>
+          <path d="M746 168 C 786 168, 810 214, 784 252" fill="none" stroke="rgb(239,68,68)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <path d="M742 286 C 702 282, 678 236, 704 200" fill="none" stroke="rgb(239,68,68)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <text x="746" y="229" text-anchor="middle" class="stcib-small">repeat</text>
+          <text x="746" y="250" text-anchor="middle" class="stcib-small">update</text>
+          <text x="746" y="324" text-anchor="middle" class="stcib-small">high online complexity</text>
 
-          <path d="M532 236 C 576 228, 602 222, 636 220" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+          <path d="M548 240 C 596 232, 622 226, 650 224" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
         </g>
 
+        <!-- Scene 2 -->
         <g id="stcib-scene-2" class="stcib-hidden">
-          <rect x="620" y="92" width="232" height="258" rx="20" fill="rgba(255,255,255,0.94)" stroke="rgba(148,163,184,0.5)"></rect>
-          <text x="736" y="118" text-anchor="middle" class="stcib-label">local interaction bias</text>
+          <rect x="634" y="92" width="234" height="264" rx="20" fill="rgba(255,255,255,0.94)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="751" y="120" text-anchor="middle" class="stcib-label">local interaction bias</text>
 
-          <circle cx="676" cy="164" r="13" class="stcib-local-node"></circle>
-          <circle cx="792" cy="152" r="13" class="stcib-local-node"></circle>
-          <circle cx="716" cy="232" r="13" class="stcib-local-node"></circle>
-          <circle cx="810" cy="262" r="13" class="stcib-local-node"></circle>
-          <circle cx="664" cy="296" r="13" class="stcib-local-node"></circle>
+          <circle cx="688" cy="168" r="13" class="stcib-local-node"></circle>
+          <circle cx="806" cy="156" r="13" class="stcib-local-node"></circle>
+          <circle cx="730" cy="236" r="13" class="stcib-local-node"></circle>
+          <circle cx="824" cy="268" r="13" class="stcib-local-node"></circle>
+          <circle cx="676" cy="302" r="13" class="stcib-local-node"></circle>
 
-          <line x1="676" y1="164" x2="716" y2="232" class="stcib-local-edge"></line>
-          <line x1="716" y1="232" x2="664" y2="296" class="stcib-local-edge"></line>
-          <line x1="792" y1="152" x2="810" y2="262" class="stcib-local-edge"></line>
+          <line x1="688" y1="168" x2="730" y2="236" class="stcib-local-edge"></line>
+          <line x1="730" y1="236" x2="676" y2="302" class="stcib-local-edge"></line>
+          <line x1="806" y1="156" x2="824" y2="268" class="stcib-local-edge"></line>
 
-          <line x1="676" y1="164" x2="792" y2="152" class="stcib-faint-edge"></line>
-          <line x1="664" y1="296" x2="810" y2="262" class="stcib-faint-edge"></line>
+          <line x1="688" y1="168" x2="806" y2="156" class="stcib-faint-edge"></line>
+          <line x1="676" y1="302" x2="824" y2="268" class="stcib-faint-edge"></line>
 
-          <text x="736" y="324" text-anchor="middle" class="stcib-small">nearby links are easy; global coupling is weak</text>
+          <text x="751" y="330" text-anchor="middle" class="stcib-small">nearby links are easy; global coupling is weak</text>
         </g>
 
+        <!-- Scene 3 -->
         <g id="stcib-scene-3" class="stcib-hidden">
-          <rect x="600" y="76" width="252" height="286" rx="22" fill="url(#stcib-attn-grad)" stroke="rgba(99,102,241,0.32)"></rect>
-          <text x="726" y="106" text-anchor="middle" class="stcib-label">global self-attention</text>
+          <rect x="614" y="76" width="252" height="292" rx="22" fill="url(#stcib-attn-grad)" stroke="rgba(99,102,241,0.32)"></rect>
+          <text x="740" y="108" text-anchor="middle" class="stcib-label">global self-attention</text>
 
-          <circle cx="660" cy="148" r="14" class="stcib-attn-node"></circle>
-          <circle cx="792" cy="148" r="14" class="stcib-attn-node"></circle>
-          <circle cx="726" cy="212" r="14" class="stcib-attn-node"></circle>
-          <circle cx="656" cy="286" r="14" class="stcib-attn-node"></circle>
-          <circle cx="796" cy="286" r="14" class="stcib-attn-node"></circle>
+          <circle cx="672" cy="150" r="14" class="stcib-attn-node"></circle>
+          <circle cx="804" cy="150" r="14" class="stcib-attn-node"></circle>
+          <circle cx="738" cy="216" r="14" class="stcib-attn-node"></circle>
+          <circle cx="668" cy="292" r="14" class="stcib-attn-node"></circle>
+          <circle cx="808" cy="292" r="14" class="stcib-attn-node"></circle>
 
-          <line x1="660" y1="148" x2="792" y2="148" class="stcib-attn-edge"></line>
-          <line x1="660" y1="148" x2="726" y2="212" class="stcib-attn-edge"></line>
-          <line x1="660" y1="148" x2="656" y2="286" class="stcib-attn-edge"></line>
-          <line x1="660" y1="148" x2="796" y2="286" class="stcib-attn-edge"></line>
-          <line x1="792" y1="148" x2="726" y2="212" class="stcib-attn-edge"></line>
-          <line x1="792" y1="148" x2="656" y2="286" class="stcib-attn-edge"></line>
-          <line x1="792" y1="148" x2="796" y2="286" class="stcib-attn-edge"></line>
-          <line x1="726" y1="212" x2="656" y2="286" class="stcib-attn-edge"></line>
-          <line x1="726" y1="212" x2="796" y2="286" class="stcib-attn-edge"></line>
-          <line x1="656" y1="286" x2="796" y2="286" class="stcib-attn-edge"></line>
+          <line x1="672" y1="150" x2="804" y2="150" class="stcib-attn-edge"></line>
+          <line x1="672" y1="150" x2="738" y2="216" class="stcib-attn-edge"></line>
+          <line x1="672" y1="150" x2="668" y2="292" class="stcib-attn-edge"></line>
+          <line x1="672" y1="150" x2="808" y2="292" class="stcib-attn-edge"></line>
+          <line x1="804" y1="150" x2="738" y2="216" class="stcib-attn-edge"></line>
+          <line x1="804" y1="150" x2="668" y2="292" class="stcib-attn-edge"></line>
+          <line x1="804" y1="150" x2="808" y2="292" class="stcib-attn-edge"></line>
+          <line x1="738" y1="216" x2="668" y2="292" class="stcib-attn-edge"></line>
+          <line x1="738" y1="216" x2="808" y2="292" class="stcib-attn-edge"></line>
+          <line x1="668" y1="292" x2="808" y2="292" class="stcib-attn-edge"></line>
 
-          <foreignObject x="636" y="316" width="180" height="30">
+          <foreignObject x="648" y="324" width="184" height="30">
             <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center">
               <span class="stcib-math-inline" data-latex="\mathrm{Attention}(Q,K,V)"></span>
             </div>
           </foreignObject>
         </g>
 
+        <!-- Scene 4 -->
         <g id="stcib-scene-4" class="stcib-hidden">
-          <rect x="580" y="86" width="278" height="268" rx="22" fill="rgba(255,255,255,0.95)" stroke="rgba(148,163,184,0.5)"></rect>
-          <text x="719" y="112" text-anchor="middle" class="stcib-label">set transformer pipeline</text>
+          <rect x="592" y="88" width="286" height="276" rx="22" fill="rgba(255,255,255,0.95)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="735" y="116" text-anchor="middle" class="stcib-label">set transformer pipeline</text>
 
-          <rect x="608" y="154" width="62" height="116" rx="14" fill="rgba(59,130,246,0.10)" stroke="rgba(59,130,246,0.45)"></rect>
-          <rect x="694" y="134" width="64" height="156" rx="14" fill="rgba(99,102,241,0.10)" stroke="rgba(99,102,241,0.45)"></rect>
-          <rect x="782" y="154" width="62" height="116" rx="14" fill="rgba(16,185,129,0.12)" stroke="rgba(5,150,105,0.45)"></rect>
+          <rect x="620" y="158" width="64" height="118" rx="14" fill="rgba(59,130,246,0.10)" stroke="rgba(59,130,246,0.45)"></rect>
+          <rect x="708" y="138" width="68" height="158" rx="14" fill="rgba(99,102,241,0.10)" stroke="rgba(99,102,241,0.45)"></rect>
+          <rect x="800" y="158" width="64" height="118" rx="14" fill="rgba(16,185,129,0.12)" stroke="rgba(5,150,105,0.45)"></rect>
 
-          <text x="639" y="218" text-anchor="middle" class="stcib-small">input</text>
-          <text x="726" y="212" text-anchor="middle" class="stcib-small">ISAB</text>
-          <text x="726" y="230" text-anchor="middle" class="stcib-small">encoder</text>
-          <text x="813" y="212" text-anchor="middle" class="stcib-small">PMA /</text>
-          <text x="813" y="230" text-anchor="middle" class="stcib-small">decoder</text>
+          <text x="652" y="222" text-anchor="middle" class="stcib-small">input</text>
+          <text x="742" y="214" text-anchor="middle" class="stcib-small">ISAB</text>
+          <text x="742" y="232" text-anchor="middle" class="stcib-small">encoder</text>
+          <text x="832" y="214" text-anchor="middle" class="stcib-small">PMA /</text>
+          <text x="832" y="232" text-anchor="middle" class="stcib-small">decoder</text>
 
-          <path d="M670 212 C 680 212, 684 212, 690 212" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
-          <path d="M758 212 C 768 212, 772 212, 778 212" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+          <path d="M684 216 C 694 216, 698 216, 704 216" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+          <path d="M776 216 C 786 216, 790 216, 796 216" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
 
-          <foreignObject x="610" y="300" width="236" height="28">
+          <foreignObject x="618" y="310" width="248" height="30">
             <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center">
               <span class="stcib-math-inline" data-latex="\mathrm{Encoder}(F)=\mathrm{ISAB}(\mathrm{ISAB}(F))"></span>
             </div>
           </foreignObject>
         </g>
 
+        <!-- Scene 5 -->
         <g id="stcib-scene-5" class="stcib-hidden">
-          <rect x="584" y="82" width="274" height="274" rx="22" fill="url(#stcib-output-grad)" stroke="rgba(16,185,129,0.35)"></rect>
-          <text x="721" y="110" text-anchor="middle" class="stcib-label">single-pass beamforming</text>
+          <rect x="596" y="84" width="284" height="282" rx="22" fill="url(#stcib-output-grad)" stroke="rgba(16,185,129,0.35)"></rect>
+          <text x="738" y="112" text-anchor="middle" class="stcib-label">single-pass beamforming</text>
 
-          <rect x="618" y="148" width="112" height="136" rx="16" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)"></rect>
-          <text x="674" y="170" text-anchor="middle" class="stcib-small">beamforming matrix</text>
-          <foreignObject x="632" y="190" width="84" height="28">
+          <rect x="628" y="152" width="116" height="140" rx="16" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="686" y="174" text-anchor="middle" class="stcib-small">beamforming matrix</text>
+          <foreignObject x="642" y="194" width="88" height="28">
             <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center stcib-fo-big">
               <span class="stcib-math-inline" data-latex="\mathbf{W}"></span>
             </div>
           </foreignObject>
-          <path d="M644 236 H 704" stroke="rgba(148,163,184,0.8)" stroke-width="2"></path>
-          <path d="M644 254 H 704" stroke="rgba(148,163,184,0.8)" stroke-width="2"></path>
+          <path d="M656 242 H 716" stroke="rgba(148,163,184,0.8)" stroke-width="2"></path>
+          <path d="M656 260 H 716" stroke="rgba(148,163,184,0.8)" stroke-width="2"></path>
 
-          <path d="M740 212 C 770 204, 796 184, 820 156" fill="none" stroke="rgb(14,165,233)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
-          <path d="M740 222 C 774 226, 800 236, 826 258" fill="none" stroke="rgb(16,185,129)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
-          <path d="M740 238 C 770 258, 790 290, 812 320" fill="none" stroke="rgb(245,158,11)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <path d="M754 218 C 786 208, 812 188, 838 158" fill="none" stroke="rgb(14,165,233)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <path d="M754 228 C 790 232, 818 242, 846 266" fill="none" stroke="rgb(16,185,129)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <path d="M754 244 C 786 266, 808 300, 830 332" fill="none" stroke="rgb(245,158,11)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
 
-          <rect x="824" y="140" width="22" height="22" rx="5" fill="rgba(59,130,246,0.16)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
-          <circle cx="838" cy="258" r="11" fill="rgba(16,185,129,0.16)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
-          <polygon points="838,306 842,316 854,316 844,322 848,334 838,327 828,334 832,322 822,316 834,316" fill="rgba(245,158,11,0.20)" stroke="rgba(217,119,6,0.9)" stroke-width="2"></polygon>
+          <rect x="844" y="142" width="22" height="22" rx="5" fill="rgba(59,130,246,0.16)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+          <circle cx="858" cy="266" r="11" fill="rgba(16,185,129,0.16)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+          <polygon points="858,316 862,326 874,326 864,332 868,344 858,337 848,344 852,332 842,326 854,326" fill="rgba(245,158,11,0.20)" stroke="rgba(217,119,6,0.9)" stroke-width="2"></polygon>
 
-          <text x="838" y="132" text-anchor="middle" class="stcib-small">AP beam</text>
-          <text x="838" y="282" text-anchor="middle" class="stcib-small">user rate</text>
-          <text x="838" y="352" text-anchor="middle" class="stcib-small">sensing</text>
+          <text x="858" y="134" text-anchor="middle" class="stcib-small">AP beam</text>
+          <text x="858" y="290" text-anchor="middle" class="stcib-small">user rate</text>
+          <text x="858" y="362" text-anchor="middle" class="stcib-small">sensing</text>
         </g>
       </svg>
     </div>
@@ -268,7 +276,7 @@ order: 1
 
   .stcib-panel {
     width: 100%;
-    max-width: 980px;
+    max-width: 1000px;
     margin: 1.5rem auto 0 auto;
     border: 1px solid #e5e7eb;
     border-radius: 22px;
@@ -281,7 +289,7 @@ order: 1
   .stcib-stage {
     position: relative;
     width: 100%;
-    height: 360px;
+    height: 380px;
     overflow: hidden;
     border-radius: 18px;
     border: 1px solid #dbe4f0;
@@ -487,15 +495,49 @@ order: 1
     50% { opacity: 1; }
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 980px) {
+    .stcib-panel {
+      max-width: 100%;
+    }
+
+    .stcib-stage {
+      height: 420px;
+    }
+  }
+
+  @media (max-width: 760px) {
     .stcib-stage {
       height: 460px;
+    }
+
+    .stcib-title {
+      font-size: 1rem;
+    }
+
+    .stcib-caption,
+    .stcib-equation {
+      font-size: 0.92rem;
     }
   }
 
   @media (max-width: 640px) {
+    .stcib-panel {
+      padding: 0.8rem;
+      border-radius: 18px;
+    }
+
     .stcib-stage {
-      height: 340px;
+      height: 500px;
+      border-radius: 16px;
+    }
+
+    .stcib-controls {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .stcib-info {
+      padding: 0.8rem 0.9rem;
     }
   }
 </style>
@@ -620,6 +662,7 @@ order: 1
       if (infoTitle) infoTitle.textContent = scenes[current].title;
       if (infoCaption) infoCaption.textContent = scenes[current].caption;
       renderMath(infoEquation, scenes[current].equation, true);
+
       if (infoMeta) {
         infoMeta.textContent = "Scene " + String(current + 1) + " of " + String(scenes.length);
       }
