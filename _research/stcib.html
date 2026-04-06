@@ -1,1 +1,675 @@
+---
+title: "Set Transformer-Based Beamforming Design for CF-ISAC"
+order: 1
+---
+
+<section class="stcib-entry">
+  <h2>Set Transformer-Based Beamforming Design for Cell-Free Integrated Sensing and Communication</h2>
+
+  <p>
+    This work introduces STCIB, the first Set Transformer-based beamforming framework for cell-free integrated sensing and communication (CF-ISAC). Instead of relying on computationally heavy iterative optimization or locally constrained learning architectures, the method models the CF-ISAC network as an unordered set and uses global self-attention to capture interactions among distributed access points, users, and sensing targets.
+  </p>
+
+  <p>
+    The resulting architecture is permutation-invariant, operates in an unsupervised manner, and produces beamforming solutions through a single forward pass. In this view, the method transforms estimated channels into set-structured features, propagates information through attention blocks, and outputs a power-constrained beamforming matrix suitable for sensing-centric, communication-centric, and joint ISAC regimes.
+  </p>
+
+  <p class="stcib-paper-note">
+    Paper: <em>Set Transformer-Based Beamforming Design for Cell-Free Integrated Sensing and Communication</em>.
+  </p>
+
+  <div class="stcib-panel">
+    <div class="stcib-stage">
+      <svg viewBox="0 0 760 460" preserveAspectRatio="xMidYMid meet" aria-label="STCIB set transformer animation">
+        <defs>
+          <linearGradient id="stcib-bg-grad" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="rgba(241,245,249,0.95)"></stop>
+            <stop offset="100%" stop-color="rgba(219,234,254,0.88)"></stop>
+          </linearGradient>
+          <linearGradient id="stcib-card-grad" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.98)"></stop>
+            <stop offset="100%" stop-color="rgba(248,250,252,0.98)"></stop>
+          </linearGradient>
+          <linearGradient id="stcib-attn-grad" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="rgba(99,102,241,0.15)"></stop>
+            <stop offset="100%" stop-color="rgba(168,85,247,0.22)"></stop>
+          </linearGradient>
+          <linearGradient id="stcib-output-grad" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="rgba(16,185,129,0.18)"></stop>
+            <stop offset="100%" stop-color="rgba(14,165,233,0.16)"></stop>
+          </linearGradient>
+          <marker id="stcib-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#334155"></path>
+          </marker>
+        </defs>
+
+        <rect x="0" y="0" width="760" height="460" fill="url(#stcib-bg-grad)"></rect>
+
+        <rect x="46" y="38" width="668" height="384" rx="24" fill="url(#stcib-card-grad)" stroke="rgba(148,163,184,0.35)" stroke-width="1.5"></rect>
+
+        <text x="68" y="72" class="stcib-label" style="font-size:20px;">STCIB conceptual view</text>
+        <text x="68" y="95" class="stcib-small">from unordered channels to attention-based beamforming</text>
+
+        <g id="stcib-base-system">
+          <g class="stcib-node stcib-ap">
+            <rect x="122" y="138" width="34" height="34" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+            <text x="139" y="130" text-anchor="middle" class="stcib-small">AP₁</text>
+          </g>
+          <g class="stcib-node stcib-ap">
+            <rect x="196" y="242" width="34" height="34" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+            <text x="213" y="234" text-anchor="middle" class="stcib-small">AP₂</text>
+          </g>
+          <g class="stcib-node stcib-ap">
+            <rect x="148" y="332" width="34" height="34" rx="8" fill="rgba(59,130,246,0.18)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+            <text x="165" y="324" text-anchor="middle" class="stcib-small">AP₃</text>
+          </g>
+
+          <g class="stcib-node stcib-user">
+            <circle cx="290" cy="152" r="15" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+            <text x="290" y="128" text-anchor="middle" class="stcib-small">U₁</text>
+          </g>
+          <g class="stcib-node stcib-user">
+            <circle cx="336" cy="256" r="15" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+            <text x="336" y="232" text-anchor="middle" class="stcib-small">U₂</text>
+          </g>
+          <g class="stcib-node stcib-user">
+            <circle cx="278" cy="346" r="15" fill="rgba(16,185,129,0.18)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+            <text x="278" y="322" text-anchor="middle" class="stcib-small">U₃</text>
+          </g>
+
+          <g class="stcib-node stcib-target">
+            <polygon points="372,186 378,202 395,202 381,212 386,228 372,218 358,228 363,212 349,202 366,202" fill="rgba(245,158,11,0.22)" stroke="rgba(217,119,6,0.9)" stroke-width="2"></polygon>
+            <text x="372" y="175" text-anchor="middle" class="stcib-small">target</text>
+          </g>
+        </g>
+
+        <g id="stcib-data-matrix" class="stcib-hidden">
+          <rect x="460" y="122" width="182" height="222" rx="20" fill="rgba(255,255,255,0.9)" stroke="rgba(148,163,184,0.5)" stroke-width="1.5"></rect>
+          <text x="551" y="148" text-anchor="middle" class="stcib-label">unordered feature set</text>
+          <text x="551" y="167" text-anchor="middle" class="stcib-small">channel estimates after I/Q transform</text>
+
+          <g transform="translate(492,194)">
+            <rect width="118" height="108" rx="14" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.28)"></rect>
+            <g>
+              <rect x="12" y="12" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
+              <rect x="36" y="12" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+              <rect x="60" y="12" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+              <rect x="84" y="12" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
+
+              <rect x="12" y="36" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+              <rect x="36" y="36" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+              <rect x="60" y="36" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
+              <rect x="84" y="36" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+
+              <rect x="12" y="60" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+              <rect x="36" y="60" width="18" height="18" rx="4" class="stcib-grid-a"></rect>
+              <rect x="60" y="60" width="18" height="18" rx="4" class="stcib-grid-b"></rect>
+              <rect x="84" y="60" width="18" height="18" rx="4" class="stcib-grid-c"></rect>
+            </g>
+          </g>
+
+          <path d="M392 236 C 420 236, 430 236, 454 236" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+        </g>
+
+        <g id="stcib-scene-0" class="stcib-hidden">
+          <rect x="445" y="88" width="218" height="80" rx="16" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.55)"></rect>
+          <foreignObject x="460" y="104" width="190" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center stcib-fo-big">
+              <span class="stcib-math-inline" data-latex="\mathcal{F}=\{\hat{f}_1,\ldots,\hat{f}_K\}"></span>
+            </div>
+          </foreignObject>
+          <text x="554" y="150" text-anchor="middle" class="stcib-small">set-structured input, no preferred order</text>
+
+          <circle cx="139" cy="155" r="28" fill="rgba(59,130,246,0.08)" class="stcib-pulse"></circle>
+          <circle cx="290" cy="152" r="28" fill="rgba(16,185,129,0.08)" class="stcib-pulse" style="animation-delay:0.25s;"></circle>
+          <circle cx="372" cy="206" r="30" fill="rgba(245,158,11,0.10)" class="stcib-pulse" style="animation-delay:0.45s;"></circle>
+        </g>
+
+        <g id="stcib-scene-1" class="stcib-hidden">
+          <rect x="464" y="102" width="174" height="246" rx="20" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="551" y="126" text-anchor="middle" class="stcib-label">iterative solver</text>
+          <circle cx="551" cy="218" r="56" fill="none" stroke="rgba(239,68,68,0.55)" stroke-width="4" stroke-dasharray="10 10"></circle>
+          <path d="M551 162 C 590 162, 614 208, 590 244" fill="none" stroke="rgb(239,68,68)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <path d="M549 276 C 512 274, 488 228, 513 193" fill="none" stroke="rgb(239,68,68)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <text x="551" y="222" text-anchor="middle" class="stcib-small">repeat</text>
+          <text x="551" y="242" text-anchor="middle" class="stcib-small">update</text>
+          <text x="551" y="316" text-anchor="middle" class="stcib-small">high online complexity</text>
+
+          <path d="M393 235 C 428 228, 442 220, 458 218" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+        </g>
+
+        <g id="stcib-scene-2" class="stcib-hidden">
+          <rect x="448" y="92" width="224" height="254" rx="20" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="560" y="118" text-anchor="middle" class="stcib-label">local interaction bias</text>
+
+          <circle cx="500" cy="162" r="13" class="stcib-local-node"></circle>
+          <circle cx="612" cy="152" r="13" class="stcib-local-node"></circle>
+          <circle cx="538" cy="232" r="13" class="stcib-local-node"></circle>
+          <circle cx="628" cy="258" r="13" class="stcib-local-node"></circle>
+          <circle cx="490" cy="290" r="13" class="stcib-local-node"></circle>
+
+          <line x1="500" y1="162" x2="538" y2="232" class="stcib-local-edge"></line>
+          <line x1="538" y1="232" x2="490" y2="290" class="stcib-local-edge"></line>
+          <line x1="612" y1="152" x2="628" y2="258" class="stcib-local-edge"></line>
+
+          <line x1="500" y1="162" x2="612" y2="152" class="stcib-faint-edge"></line>
+          <line x1="490" y1="290" x2="628" y2="258" class="stcib-faint-edge"></line>
+
+          <text x="560" y="320" text-anchor="middle" class="stcib-small">nearby links are easy; global coupling is weak</text>
+        </g>
+
+        <g id="stcib-scene-3" class="stcib-hidden">
+          <rect x="430" y="78" width="252" height="282" rx="22" fill="url(#stcib-attn-grad)" stroke="rgba(99,102,241,0.32)"></rect>
+          <text x="556" y="106" text-anchor="middle" class="stcib-label">global self-attention</text>
+
+          <circle cx="490" cy="148" r="14" class="stcib-attn-node"></circle>
+          <circle cx="618" cy="148" r="14" class="stcib-attn-node"></circle>
+          <circle cx="554" cy="206" r="14" class="stcib-attn-node"></circle>
+          <circle cx="486" cy="278" r="14" class="stcib-attn-node"></circle>
+          <circle cx="622" cy="278" r="14" class="stcib-attn-node"></circle>
+
+          <line x1="490" y1="148" x2="618" y2="148" class="stcib-attn-edge"></line>
+          <line x1="490" y1="148" x2="554" y2="206" class="stcib-attn-edge"></line>
+          <line x1="490" y1="148" x2="486" y2="278" class="stcib-attn-edge"></line>
+          <line x1="490" y1="148" x2="622" y2="278" class="stcib-attn-edge"></line>
+          <line x1="618" y1="148" x2="554" y2="206" class="stcib-attn-edge"></line>
+          <line x1="618" y1="148" x2="486" y2="278" class="stcib-attn-edge"></line>
+          <line x1="618" y1="148" x2="622" y2="278" class="stcib-attn-edge"></line>
+          <line x1="554" y1="206" x2="486" y2="278" class="stcib-attn-edge"></line>
+          <line x1="554" y1="206" x2="622" y2="278" class="stcib-attn-edge"></line>
+          <line x1="486" y1="278" x2="622" y2="278" class="stcib-attn-edge"></line>
+
+          <foreignObject x="456" y="316" width="200" height="30">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center">
+              <span class="stcib-math-inline" data-latex="\mathrm{Attention}(Q,K,V)"></span>
+            </div>
+          </foreignObject>
+        </g>
+
+        <g id="stcib-scene-4" class="stcib-hidden">
+          <rect x="424" y="88" width="268" height="258" rx="22" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="558" y="114" text-anchor="middle" class="stcib-label">set transformer pipeline</text>
+
+          <rect x="448" y="154" width="56" height="112" rx="14" fill="rgba(59,130,246,0.10)" stroke="rgba(59,130,246,0.45)"></rect>
+          <rect x="530" y="134" width="56" height="152" rx="14" fill="rgba(99,102,241,0.10)" stroke="rgba(99,102,241,0.45)"></rect>
+          <rect x="612" y="154" width="56" height="112" rx="14" fill="rgba(16,185,129,0.12)" stroke="rgba(5,150,105,0.45)"></rect>
+
+          <text x="476" y="212" text-anchor="middle" class="stcib-small">input
+</text>
+          <text x="558" y="210" text-anchor="middle" class="stcib-small">ISAB
+encoder</text>
+          <text x="640" y="212" text-anchor="middle" class="stcib-small">PMA /
+decoder</text>
+
+          <path d="M504 210 C 514 210, 518 210, 526 210" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+          <path d="M586 210 C 596 210, 600 210, 608 210" fill="none" stroke="#334155" stroke-width="3" marker-end="url(#stcib-arrow)"></path>
+
+          <foreignObject x="458" y="298" width="200" height="26">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center">
+              <span class="stcib-math-inline" data-latex="\mathrm{Encoder}(F)=\mathrm{ISAB}(\mathrm{ISAB}(F))"></span>
+            </div>
+          </foreignObject>
+        </g>
+
+        <g id="stcib-scene-5" class="stcib-hidden">
+          <rect x="424" y="86" width="268" height="270" rx="22" fill="url(#stcib-output-grad)" stroke="rgba(16,185,129,0.35)"></rect>
+          <text x="558" y="112" text-anchor="middle" class="stcib-label">single-pass beamforming</text>
+
+          <rect x="458" y="146" width="104" height="130" rx="16" fill="rgba(255,255,255,0.92)" stroke="rgba(148,163,184,0.5)"></rect>
+          <text x="510" y="168" text-anchor="middle" class="stcib-small">beamforming matrix</text>
+          <foreignObject x="470" y="188" width="80" height="28">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="stcib-fo-center stcib-fo-big">
+              <span class="stcib-math-inline" data-latex="\mathbf{W}"></span>
+            </div>
+          </foreignObject>
+          <path d="M480 232 H 540" stroke="rgba(148,163,184,0.8)" stroke-width="2"></path>
+          <path d="M480 250 H 540" stroke="rgba(148,163,184,0.8)" stroke-width="2"></path>
+
+          <path d="M568 210 C 596 202, 620 182, 642 154" fill="none" stroke="rgb(14,165,233)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <path d="M568 220 C 598 224, 622 232, 646 252" fill="none" stroke="rgb(16,185,129)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+          <path d="M568 236 C 594 254, 612 286, 632 314" fill="none" stroke="rgb(245,158,11)" stroke-width="4" marker-end="url(#stcib-arrow)"></path>
+
+          <rect x="644" y="138" width="20" height="20" rx="5" fill="rgba(59,130,246,0.16)" stroke="rgba(37,99,235,0.8)" stroke-width="2"></rect>
+          <circle cx="656" cy="252" r="10" fill="rgba(16,185,129,0.16)" stroke="rgba(5,150,105,0.82)" stroke-width="2"></circle>
+          <polygon points="656,300 660,310 671,310 662,316 666,326 656,320 646,326 650,316 641,310 652,310" fill="rgba(245,158,11,0.20)" stroke="rgba(217,119,6,0.9)" stroke-width="2"></polygon>
+
+          <text x="656" y="132" text-anchor="middle" class="stcib-small">AP beam</text>
+          <text x="656" y="274" text-anchor="middle" class="stcib-small">user rate</text>
+          <text x="656" y="344" text-anchor="middle" class="stcib-small">sensing</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="stcib-controls">
+      <div class="stcib-dots" id="stcib-dots"></div>
+      <button class="stcib-button" id="stcib-toggle" type="button">Pause</button>
+    </div>
+
+    <div class="stcib-info">
+      <div class="stcib-step">Current step</div>
+      <div class="stcib-title" id="stcib-info-title"></div>
+      <div class="stcib-caption" id="stcib-info-caption"></div>
+      <div class="stcib-equation" id="stcib-info-equation"></div>
+      <div class="stcib-meta" id="stcib-info-meta" style="margin-top: 0.65rem;"></div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+
+<style>
+  .stcib-entry {
+    margin-bottom: 3rem;
+  }
+
+  .stcib-paper-note {
+    color: #4b5563;
+  }
+
+  .stcib-panel {
+    width: 100%;
+    max-width: 880px;
+    margin: 1.5rem auto 0 auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 100%);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    box-sizing: border-box;
+  }
+
+  .stcib-stage {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid #dbe4f0;
+    background: linear-gradient(180deg, #f8fbff 0%, #eef5fb 100%);
+  }
+
+  .stcib-stage svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stcib-info {
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+  }
+
+  .stcib-step {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #6b7280;
+    margin-bottom: 0.35rem;
+  }
+
+  .stcib-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .stcib-caption {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 0.8rem;
+  }
+
+  .stcib-equation {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    overflow-x: auto;
+    color: #1f2937;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.85rem 0.9rem;
+  }
+
+  .stcib-equation .katex {
+    font-size: 1.02em;
+  }
+
+  .stcib-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.9rem;
+  }
+
+  .stcib-dots {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .stcib-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #cbd5e1;
+    transition: transform 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+  }
+
+  .stcib-dot.active {
+    background: #111827;
+    transform: scale(1.25);
+  }
+
+  .stcib-meta {
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+
+  .stcib-button {
+    border: 1px solid #d1d5db;
+    background: #fff;
+    color: #111827;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.88rem;
+    cursor: pointer;
+  }
+
+  .stcib-label {
+    font-size: 15px;
+    fill: #1f2937;
+  }
+
+  .stcib-small {
+    font-size: 13px;
+    fill: #4b5563;
+  }
+
+  .stcib-hidden {
+    opacity: 0;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+
+  .stcib-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stcib-pulse {
+    transform-origin: center;
+    animation: stcib-pulse 1.8s ease-in-out infinite;
+  }
+
+  .stcib-node {
+    transform-origin: center;
+    animation: stcib-node-bob 2.8s ease-in-out infinite;
+  }
+
+  .stcib-local-node {
+    fill: rgba(99,102,241,0.18);
+    stroke: rgba(79,70,229,0.85);
+    stroke-width: 2;
+  }
+
+  .stcib-local-edge {
+    stroke: rgba(79,70,229,0.75);
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+
+  .stcib-faint-edge {
+    stroke: rgba(148,163,184,0.5);
+    stroke-width: 2.5;
+    stroke-dasharray: 6 8;
+    stroke-linecap: round;
+  }
+
+  .stcib-attn-node {
+    fill: rgba(168,85,247,0.16);
+    stroke: rgba(126,34,206,0.84);
+    stroke-width: 2;
+  }
+
+  .stcib-attn-edge {
+    stroke: rgba(99,102,241,0.55);
+    stroke-width: 3;
+    stroke-linecap: round;
+    animation: stcib-edge-glow 1.8s ease-in-out infinite;
+  }
+
+  .stcib-grid-a { fill: rgba(59,130,246,0.55); }
+  .stcib-grid-b { fill: rgba(99,102,241,0.55); }
+  .stcib-grid-c { fill: rgba(16,185,129,0.55); }
+
+  .stcib-fo-center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1f2937;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .stcib-fo-big {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .stcib-math-inline .katex {
+    font-size: 1em;
+  }
+
+  @keyframes stcib-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.35; }
+    50% { transform: scale(1.35); opacity: 0.82; }
+  }
+
+  @keyframes stcib-node-bob {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-2px); }
+  }
+
+  @keyframes stcib-edge-glow {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+  }
+
+  @media (max-width: 900px) {
+    .stcib-stage {
+      height: 460px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .stcib-stage {
+      height: 340px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const scenes = [
+      {
+        title: "Cell-free ISAC is modeled as an unordered set",
+        caption: "Estimated channels are organized as set-structured features. The ordering of users or access points carries no physical meaning, so the representation must remain permutation-invariant.",
+        equation: String.raw`\mathcal{F}=\{\hat{f}_1,\ldots,\hat{f}_K\}`,
+        label: ""
+      },
+      {
+        title: "Classical optimization relies on repeated iterative updates",
+        caption: "Optimization-based beamforming methods repeatedly refine variables and constraints, which increases online complexity and limits scalability in large CF-ISAC systems.",
+        equation: String.raw`\max_{\mathbf{W}}\; \eta\sum_{k=1}^{K}\log_2(1+\gamma_{C,k})+(1-\eta)\sum_{j=1}^{N_R}\log_2(1+\gamma_{S,j})`,
+        label: ""
+      },
+      {
+        title: "Local architectures miss global CF interactions",
+        caption: "CNN and graph-local message passing emphasize nearby or predefined relationships, but CF-ISAC beamforming depends on global AP-user-target coupling.",
+        equation: String.raw`\text{local aggregation} \;\not\Rightarrow\; \text{full global dependency modeling}`,
+        label: ""
+      },
+      {
+        title: "Set Transformer uses global self-attention",
+        caption: "Each entity can attend to all others, allowing the model to learn long-range dependencies across distributed access points, users, and sensing targets without imposing an artificial ordering.",
+        equation: String.raw`\mathrm{Attention}(Q,K,V)=\mathrm{softmax}\!\left(\frac{QK^{\top}}{\sqrt{d}}\right)V`,
+        label: ""
+      },
+      {
+        title: "Encoder-decoder blocks build a permutation-invariant latent mapping",
+        caption: "ISAB layers encode the unordered feature set into a compact representation, and the decoder aggregates and refines it before constructing beamforming outputs.",
+        equation: String.raw`\mathrm{Encoder}(F)=\mathrm{ISAB}(\mathrm{ISAB}(F)),\qquad \mathrm{Decoder}(U)=\mathrm{rFF}(\mathrm{SAB}(\mathrm{SAB}(\mathrm{PMA}(U))))`,
+        label: ""
+      },
+      {
+        title: "Beamforming is generated in a single forward pass",
+        caption: "The trained STCIB model directly outputs a power-constrained beamforming matrix, enabling sensing-centric, communication-centric, and joint ISAC operation with low online complexity.",
+        equation: String.raw`\mathbf{W}=\mathrm{STCIB}(F),\qquad \|\mathbf{W}\|_F^2\leq \rho N_T`,
+        label: ""
+      }
+    ];
+
+    const sceneGroups = [
+      document.getElementById("stcib-scene-0"),
+      document.getElementById("stcib-scene-1"),
+      document.getElementById("stcib-scene-2"),
+      document.getElementById("stcib-scene-3"),
+      document.getElementById("stcib-scene-4"),
+      document.getElementById("stcib-scene-5")
+    ];
+
+    const baseSystem = document.getElementById("stcib-base-system");
+    const dataMatrix = document.getElementById("stcib-data-matrix");
+    const dotsWrap = document.getElementById("stcib-dots");
+    const toggleBtn = document.getElementById("stcib-toggle");
+    const infoTitle = document.getElementById("stcib-info-title");
+    const infoCaption = document.getElementById("stcib-info-caption");
+    const infoEquation = document.getElementById("stcib-info-equation");
+    const infoMeta = document.getElementById("stcib-info-meta");
+    const inlineMathNodes = document.querySelectorAll(".stcib-math-inline");
+
+    let current = 0;
+    let playing = true;
+    let timer = null;
+
+    function setVisible(el, visible) {
+      if (!el) return;
+      el.classList.remove("stcib-hidden", "stcib-visible");
+      el.classList.add(visible ? "stcib-visible" : "stcib-hidden");
+    }
+
+    function renderMath(element, latex, displayMode) {
+      if (!element) return;
+      element.textContent = latex;
+      if (window.katex && typeof window.katex.render === "function") {
+        try {
+          window.katex.render(latex, element, {
+            throwOnError: false,
+            displayMode: !!displayMode
+          });
+        } catch (error) {
+          element.textContent = latex;
+        }
+      }
+    }
+
+    function renderInlineMath() {
+      inlineMathNodes.forEach(function (node) {
+        const latex = node.getAttribute("data-latex");
+        renderMath(node, latex, false);
+      });
+    }
+
+    function renderDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = "";
+      scenes.forEach(function (_, index) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "stcib-dot" + (index === current ? " active" : "");
+        dot.setAttribute("aria-label", "Go to scene " + String(index + 1));
+        dot.addEventListener("click", function () {
+          current = index;
+          render();
+          restart();
+        });
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    function render() {
+      setVisible(baseSystem, true);
+      setVisible(dataMatrix, current >= 4);
+
+      sceneGroups.forEach(function (group, index) {
+        setVisible(group, index === current);
+      });
+
+      if (infoTitle) infoTitle.textContent = scenes[current].title;
+      if (infoCaption) infoCaption.textContent = scenes[current].caption;
+      renderMath(infoEquation, scenes[current].equation, true);
+      if (infoMeta) {
+        infoMeta.textContent = "Scene " + String(current + 1) + " of " + String(scenes.length);
+      }
+
+      renderDots();
+      renderInlineMath();
+    }
+
+    function start() {
+      window.clearInterval(timer);
+      timer = window.setInterval(function () {
+        current = (current + 1) % scenes.length;
+        render();
+      }, 3400);
+    }
+
+    function stop() {
+      window.clearInterval(timer);
+      timer = null;
+    }
+
+    function restart() {
+      if (playing) start();
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        playing = !playing;
+        toggleBtn.textContent = playing ? "Pause" : "Play";
+        if (playing) {
+          start();
+        } else {
+          stop();
+        }
+      });
+    }
+
+    function initWhenKatexReady(attemptsLeft) {
+      if (window.katex || attemptsLeft <= 0) {
+        render();
+        start();
+        return;
+      }
+      window.setTimeout(function () {
+        initWhenKatexReady(attemptsLeft - 1);
+      }, 120);
+    }
+
+    initWhenKatexReady(50);
+  })();
+</script>
 
