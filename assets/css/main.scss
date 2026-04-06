@@ -38,12 +38,14 @@
     "layout/json_cv",
 
     "vendor/font-awesome/fontawesome",
+    "vendor/font-awesome/solid",
+    "vendor/font-awesome/brands"
+;
 
-
-   /* === Custom footer color override === */
+/* === Custom footer color override === */
 .page__footer {
-  background-color: #f5f5f5  !important;  // dark gray (clean look)
-  color: #333  !important;
+  background-color: #222222 !important;  // dark gray (clean look)
+  color: #ffffff !important;
 }
 
 .page__footer a {
@@ -53,6 +55,3 @@
 .page__footer a:hover {
   color: #ffffff !important;
 }
-    "vendor/font-awesome/solid",
-    "vendor/font-awesome/brands"
-;
