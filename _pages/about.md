@@ -12,7 +12,7 @@ I am a *Postdoctoral Research Fellow* in the Department of Electrical and Comput
 
 I received my *Ph.D. in Electrical and Computer Engineering* from *Southern Illinois University* in 2021, where my work explored advanced architectures for wireless systems, including cell-free massive MIMO and intelligent reflective surface-aided communications. Prior to that, I obtained my *B.Sc. (First-Class Honours) in Electrical and Electronic Engineering* from the *University of Peradeniya, Sri Lanka*.
 
-My research combines rigorous mathematical modeling, signal processing, and system-level design to address emerging challenges in wireless networks. I am particularly interested in developing efficient, scalable, and intelligent communication frameworks that support both **data transmission** and **sensing capabilities** in future wireless ecosystems.
+My research combines rigorous mathematical modeling, signal processing, and system-level design to address emerging challenges in wireless networks. I am particularly interested in developing efficient, scalable, and intelligent communication frameworks that support both data transmission and sensing capabilities in future wireless ecosystems.
 
 In addition to research, I am actively involved in mentoring graduate students, contributing to course development, and supporting teaching in areas such as communication systems, signal processing, and engineering mathematics.
 
