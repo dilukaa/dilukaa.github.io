@@ -8,11 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-# Diluka Galappaththige
+I am a *Postdoctoral Research Fellow* in the Department of Electrical and Computer Engineering at the *University of Alberta, Canada*. My research focuses on *next-generation wireless communication systems*, with particular emphasis on integrated sensing and communication (ISAC), massive MIMO, reconfigurable intelligent surfaces (RIS), and 6G wireless networks.
 
-I am a **Postdoctoral Research Fellow** in the Department of Electrical and Computer Engineering at the **University of Alberta, Canada**. My research focuses on **next-generation wireless communication systems**, with particular emphasis on **integrated sensing and communication (ISAC)**, **massive MIMO**, **reconfigurable intelligent surfaces (RIS)**, and **6G wireless networks**.
-
-I received my **Ph.D. in Electrical and Computer Engineering** from **Southern Illinois University** in 2021, where my work explored advanced architectures for wireless systems, including **cell-free massive MIMO** and **intelligent reflective surface-aided communications**. Prior to that, I obtained my **B.Sc. (First-Class Honours) in Electrical and Electronic Engineering** from the **University of Peradeniya, Sri Lanka**.
+I received my *Ph.D. in Electrical and Computer Engineering* from *Southern Illinois University* in 2021, where my work explored advanced architectures for wireless systems, including cell-free massive MIMO and intelligent reflective surface-aided communications. Prior to that, I obtained my *B.Sc. (First-Class Honours) in Electrical and Electronic Engineering* from the *University of Peradeniya, Sri Lanka*.
 
 My research combines rigorous mathematical modeling, signal processing, and system-level design to address emerging challenges in wireless networks. I am particularly interested in developing efficient, scalable, and intelligent communication frameworks that support both **data transmission** and **sensing capabilities** in future wireless ecosystems.
 
@@ -20,7 +18,7 @@ In addition to research, I am actively involved in mentoring graduate students, 
 
 ## Research Interests
 
-My research lies broadly in **wireless communications and signal processing**, with a focus on enabling technologies for **5G, beyond 5G, and 6G systems**. Key areas include:
+My research lies broadly in *wireless communications and signal processing*, with a focus on enabling technologies for *5G, beyond 5G, and 6G systems*. Key areas include:
 
 - Massive MIMO systems (co-located and cell-free architectures)
 - Integrated sensing and communication (ISAC) and near-field ISAC
